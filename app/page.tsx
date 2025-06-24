@@ -6,6 +6,7 @@ import HeroSection from "@/components/sections/hero-section";
 import SkillsSection from "@/components/sections/skills-section";
 import ProjectsSection from  "@/components/sections/projects-section"
 import { motion, useScroll, useSpring } from "framer-motion";
+import ContactSection from "@/components/sections/contact-section";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -27,6 +28,7 @@ export default function Home() {
         <AboutSection />
         <SkillsSection />
         <ProjectsSection />
+        <ContactSection />
       </main>
     </>
   );
