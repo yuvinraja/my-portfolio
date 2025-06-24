@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 relative">
+    <section id="about" className="py-20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -15,7 +15,7 @@ export default function AboutSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="font-heading">About Me</span>
+            <span className="font-heading text-primary dark:text-primary">About Me</span>
           </h2>
           <div className="w-24 h-1 bg-primary dark:bg-primary mx-auto rounded-full"></div>
         </motion.div>
@@ -32,9 +32,9 @@ export default function AboutSection() {
             <div className="relative w-80 h-80 mx-auto">
               <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-full blur-2xl opacity-30"></div>
               <div className="relative w-full h-full bg-primary rounded-full p-1">
-                <div className="w-full h-full bg-white dark:bg-slate-900 rounded-full overflow-hidden">
+                <div className="w-full h-full bg-background/90 dark:bg-slate-900 rounded-full overflow-hidden">
                   <Image
-                    src="/placeholder.svg?height=320&width=320"
+                    src="/headshot-removebg.png"
                     alt="Yuvin - Full Stack Developer"
                     width={320}
                     height={320}
