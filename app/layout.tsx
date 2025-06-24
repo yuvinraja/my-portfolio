@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
+import FloatingParticles from "@/components/floating-particles";
 
 export const metadata: Metadata = {
   title: "Yuvin Raja",
@@ -34,6 +35,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <FloatingParticles />
             {children}
           </ThemeProvider>
         </body>
