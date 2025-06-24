@@ -14,6 +14,7 @@ import {
   X,
 } from "lucide-react";
 import { useTheme } from "next-themes";
+import { ThemeSwitcher } from "./theme-switcher";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -60,7 +61,7 @@ export default function Header() {
     >
       <nav className="container mx-auto px-4 py-4 relative flex items-center justify-between">
         {/* Logo */}
-        <div className="text-2xl font-bold">
+        <div className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">
           Yuvin.dev
         </div>
 
@@ -70,7 +71,7 @@ export default function Header() {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className="transition-colors font-medium"
+              className="transition-colors font-medium "
             >
               {item.label}
             </button>
@@ -79,18 +80,10 @@ export default function Header() {
 
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center space-x-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className=""
-          >
-            {theme === "dark" ? (
-              <Sun className="h-5 w-5" />
-            ) : (
-              <Moon className="h-5 w-5" />
-            )}
-          </Button>
+          {/* Theme Switcher */}
+          <ThemeSwitcher />
+
+          {/* Social Icons */}
 
           {/* <div className="flex items-center space-x-2">
             <Button variant="ghost" size="icon" className="">

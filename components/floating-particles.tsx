@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useColorTheme } from "@/lib/color-theme-provider";
 
 export default function FloatingParticles() {
   const [dots, setDots] = useState<{ left: number; top: number }[]>([]);
+  const { colorTheme } = useColorTheme();
 
   useEffect(() => {
     const randomDots = Array.from({ length: 20 }, () => ({
@@ -14,12 +16,27 @@ export default function FloatingParticles() {
     setDots(randomDots);
   }, []);
 
+  // Get particle class based on color theme
+  const getParticleClass = () => {
+    switch (colorTheme) {
+      case 'portfolio':
+        return "bg-gradient-to-br from-primary/20 to-accent/15";
+      
+      case 'ocean':
+        return "bg-gradient-to-br from-primary/20 to-secondary/15";
+      
+      case 'neutral':
+      default:
+        return "bg-gradient-to-br from-foreground/10 to-muted-foreground/5";
+    }
+  };
+
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
       {dots.map((dot, i) => (
         <motion.div
-          key={i}
-          className="absolute w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-20"
+          key={`${colorTheme}-${i}`} // Key includes theme to force re-render
+          className={`absolute w-2 h-2 rounded-full ${getParticleClass()}`}
           animate={{
             x: [0, 100, 0],
             y: [0, -100, 0],

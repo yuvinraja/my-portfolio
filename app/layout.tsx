@@ -1,7 +1,32 @@
 import "../styles/globals.css";
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
+import { ColorThemeProvider } from "@/lib/color-theme-provider";
 import FloatingParticles from "@/components/floating-particles";
+
+import { Playfair_Display, Lora, Raleway } from "next/font/google";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const lora = Lora({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-lora",
+  display: "swap",
+});
+
+const raleway = Raleway({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-raleway",
+  display: "swap",
+});
+
 
 export const metadata: Metadata = {
   title: "Yuvin Raja",
@@ -26,7 +51,7 @@ export default function RootLayout({
 }>) {
   return (
     <>
-      <html lang="en" suppressHydrationWarning>
+      <html lang="en" className={`${playfair.variable} ${lora.variable} ${raleway.variable}`} suppressHydrationWarning>
         <head />
         <body>
           <ThemeProvider
@@ -35,8 +60,10 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <FloatingParticles />
-            {children}
+            <ColorThemeProvider>
+              <FloatingParticles />
+              {children}
+            </ColorThemeProvider>
           </ThemeProvider>
         </body>
       </html>

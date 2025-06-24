@@ -1,25 +1,53 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Eye, FileText } from "lucide-react";
+import {  Eye, FileText } from "lucide-react";
+// import { ArrowDown } from "lucide-react";
 
 export default function HeroSection() {
-  const [currentRole, setCurrentRole] = useState(0);
-  const roles = [
-    "Full Stack Developer",
-    "AI/ML Enthusiast",
-    "ROS Developer",
-    "Game Designer",
-  ];
+  const roles = useMemo(
+    () => [
+      "Full Stack Developer",
+      "ML Developer",
+      "Software Engineer",
+      "Web Developer",
+      "Game Designer",
+      "Systems Architect",
+    ],
+    []
+  );
+
+  const [text, setText] = useState("");
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [typingSpeed, setTypingSpeed] = useState(100);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentRole((prev) => (prev + 1) % roles.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [roles.length]);
+    const current = roles[roleIndex];
+    const fullText = current;
+
+    const timer = setTimeout(() => {
+      if (isDeleting) {
+        setText((prev) => prev.slice(0, -1));
+        setTypingSpeed(50); // Faster deletion
+      } else {
+        setText((prev) => fullText.slice(0, prev.length + 1));
+        setTypingSpeed(150); // Slower typing for better readability
+      }
+
+      if (!isDeleting && text === fullText) {
+        // Pause before starting to delete
+        setTimeout(() => setIsDeleting(true), 2000);
+      } else if (isDeleting && text === "") {
+        setIsDeleting(false);
+        setRoleIndex((prev) => (prev + 1) % roles.length);
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, roleIndex, roles, typingSpeed]);
 
   const scrollToProjects = () => {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
@@ -29,18 +57,17 @@ export default function HeroSection() {
     document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const [showScroll, setShowScroll] = useState(true);
+  //   const [showScroll, setShowScroll] = useState(true);
+  //   useEffect(() => {
+  //     const handleScroll = () => {
+  //       const hero = document.getElementById("hero");
+  //       const heroHeight = hero?.offsetHeight ?? 0;
+  //       setShowScroll(window.scrollY < heroHeight - 100);
+  //     };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const hero = document.getElementById("hero");
-      const heroHeight = hero?.offsetHeight ?? 0;
-      setShowScroll(window.scrollY < heroHeight - 100);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //     window.addEventListener("scroll", handleScroll);
+  //     return () => window.removeEventListener("scroll", handleScroll);
+  //   }, []);
 
   return (
     <section
@@ -48,8 +75,14 @@ export default function HeroSection() {
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
       {/* Gradient Blobs */}
-      <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-      <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"></div>
+      {/* <div
+        className="absolute top-1/4 left-1/4 w-72 h-72 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full
+  mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-30 animate-pulse"
+      />
+      <div
+        className="absolute top-1/3 right-1/4 w-72 h-72 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full
+  mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-30 animate-pulse animation-delay-2000"
+      /> */}
 
       <div className="container mx-auto px-4 text-center relative z-10">
         <motion.div
@@ -66,7 +99,7 @@ export default function HeroSection() {
             className="text-5xl md:text-7xl font-bold mb-6"
           >
             <span className="">Hey, I&apos;m </span>
-            <span className="">Yuvin</span>
+            <span className="text-primary">Yuvin</span>
             <motion.span
               animate={{ rotate: [0, 14, -8, 14, -4, 10, 0] }}
               transition={{
@@ -88,16 +121,7 @@ export default function HeroSection() {
             className="text-2xl md:text-4xl font-semibold mb-6 h-16 flex items-center justify-center"
           >
             <span className="">I&apos;m a </span>
-            <motion.span
-              key={currentRole}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="ml-2"
-            >
-              {roles[currentRole]}
-            </motion.span>
+            <span className="ml-2 text-primary dark:text-accent">{text}</span>
           </motion.div>
 
           {/* Subtitle */}
@@ -140,7 +164,7 @@ export default function HeroSection() {
         </motion.div>
 
         {/* Scroll Indicator */}
-        {showScroll && (
+        {/* {showScroll && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -151,13 +175,13 @@ export default function HeroSection() {
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="flex flex-col items-center text-slate-500 dark:text-slate-400"
+              className="flex flex-col items-center"
             >
               <span className="text-sm mb-2">Scroll to explore</span>
               <ArrowDown className="h-5 w-5" />
             </motion.div>
           </motion.div>
-        )}
+        )} */}
       </div>
     </section>
   );
