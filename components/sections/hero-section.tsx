@@ -13,7 +13,6 @@ export default function HeroSection() {
       "ML Developer",
       "Software Engineer",
       "Web Developer",
-      "Game Designer",
       "Systems Architect",
     ],
     []
@@ -117,7 +116,7 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="text-lg md:text-x mb-8 max-w-2xl mx-auto leading-relaxed "
+            className="font-medium text-lg md:text-x mb-8 max-w-2xl mx-auto leading-relaxed text-foreground/90 dark:text-foreground "
           >
             I craft full-stack web experiences with a creative touch, blending
             cutting-edge technology with innovative design to build the future

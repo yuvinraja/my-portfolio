@@ -55,13 +55,13 @@ export default function Header() {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-lg"
+          ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg"
           : "bg-transparent"
       }`}
     >
       <nav className="container mx-auto px-4 py-4 relative flex items-center justify-between">
         {/* Logo */}
-        <div className="text-2xl font-bold text-primary dark:text-primary">
+        <div className="text-2xl font-bold font-heading text-primary dark:text-primary">
           Yuvin.dev
         </div>
 
@@ -71,7 +71,7 @@ export default function Header() {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className=""
+              className="text-lg font-medium font-body text-foreground hover:text-primary transition-colors"
             >
               {item.label}
             </button>
@@ -83,21 +83,7 @@ export default function Header() {
           {/* Theme Switcher */}
           <ThemeSwitcher />
 
-          {/* Social Icons */}
-
-          {/* <div className="flex items-center space-x-2">
-            <Button variant="ghost" size="icon" className="">
-              <Github className="h-5 w-5" />
-            </Button>
-            <Button variant="ghost" size="icon" className="">
-              <Linkedin className="h-5 w-5" />
-            </Button>
-            <Button variant="ghost" size="icon" className="">
-              <Mail className="h-5 w-5" />
-            </Button>
-          </div> */}
-
-          <Button className="">
+          <Button className="font-heading text-lg px-6 py-3">
             <Download className="h-4 w-4 mr-2" />
             Resume
           </Button>
@@ -111,15 +97,16 @@ export default function Header() {
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           >
             {theme === "dark" ? (
-              <Sun className="h-5 w-5" />
+              <Sun className="h-5 w-5 text-foreground" />
             ) : (
-              <Moon className="h-5 w-5" />
+              <Moon className="h-5 w-5 text-foreground" />
             )}
           </Button>
           <Button
             variant="ghost"
             size="icon"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="text-foreground"
           >
             {isMobileMenuOpen ? (
               <X className="h-5 w-5" />
@@ -136,31 +123,44 @@ export default function Header() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="md:hidden "
+          className="md:hidden fixed inset-x-0 top-16 mx-4 p-4 rounded-lg
+                     bg-background/70 backdrop-filter backdrop-blur-lg border border-border/50 shadow-xl"
         >
           <div className="container mx-auto px-4 py-4 space-y-4">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left font-medium py-2"
+                className="block w-full text-left font-medium py-2 text-foreground hover:text-primary transition-colors"
               >
                 {item.label}
               </button>
             ))}
-            <div className="flex items-center justify-between pt-4 border-t">
+            <div className="flex items-center justify-between pt-4 border-t border-border/50">
               <div className="flex items-center space-x-2">
-                <Button variant="ghost" size="icon">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-foreground hover:text-primary"
+                >
                   <Github className="h-5 w-5" />
                 </Button>
-                <Button variant="ghost" size="icon">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-foreground hover:text-primary"
+                >
                   <Linkedin className="h-5 w-5" />
                 </Button>
-                <Button variant="ghost" size="icon">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-foreground hover:text-primary"
+                >
                   <Mail className="h-5 w-5" />
                 </Button>
               </div>
-              <Button size="sm" className="">
+              <Button size="sm" className="font-heading text-base">
                 <Download className="h-4 w-4 mr-2" />
                 Resume
               </Button>

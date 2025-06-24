@@ -239,3 +239,13 @@
     font-family: var(--font-lora);
   }
 }
+
+/* Remove scrollbar */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
