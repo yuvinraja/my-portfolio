@@ -17,24 +17,24 @@ export function ThemeSwitcher() {
   const { colorTheme, setColorTheme } = useColorTheme();
 
   const colorThemes = [
-    { 
-      id: 'neutral', 
-      name: 'Neutral', 
-      colors: ['#000000', '#ffffff', '#f5f5f5'],
-      description: 'Classic black & white'
+    {
+      id: "neutral",
+      name: "Neutral",
+      colors: ["#000000", "#ffffff", "#f5f5f5"],
+      description: "Classic black & white",
     },
-    { 
-      id: 'portfolio', 
-      name: 'Portfolio', 
-      colors: ['#e63946', '#f1faee', '#a8dadc', '#457b9d', '#1d3557'],
-      description: 'Your custom palette'
+    {
+      id: "portfolio",
+      name: "Portfolio",
+      colors: ["#e63946", "#f1faee", "#a8dadc", "#457b9d", "#1d3557"],
+      description: "Your custom palette",
     },
-    { 
-      id: 'ocean', 
-      name: 'Ocean', 
-      colors: ['#006d77', '#83c5be', '#ffddd2'],
-      description: 'Calm ocean vibes'
-    }
+    {
+      id: "ocean",
+      name: "Ocean",
+      colors: ["#006d77", "#83c5be", "#ffddd2"],
+      description: "Calm ocean vibes",
+    },
   ] as const;
 
   return (
@@ -64,7 +64,7 @@ export function ThemeSwitcher() {
           {colorThemes.map((t) => (
             <DropdownMenuItem
               key={t.id}
-              onClick={() => setColorTheme(t.id as any)}
+              onClick={() => setColorTheme(t.id)}
               className="flex items-center gap-3 cursor-pointer"
             >
               <div className="flex gap-1">
@@ -78,7 +78,9 @@ export function ThemeSwitcher() {
               </div>
               <div className="flex flex-col">
                 <span className="font-medium">{t.name}</span>
-                <span className="text-xs text-muted-foreground">{t.description}</span>
+                <span className="text-xs text-muted-foreground">
+                  {t.description}
+                </span>
               </div>
               {colorTheme === t.id && (
                 <div className="ml-auto w-2 h-2 bg-primary rounded-full" />
