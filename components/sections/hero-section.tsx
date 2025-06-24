@@ -57,18 +57,6 @@ export default function HeroSection() {
     document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  //   const [showScroll, setShowScroll] = useState(true);
-  //   useEffect(() => {
-  //     const handleScroll = () => {
-  //       const hero = document.getElementById("hero");
-  //       const heroHeight = hero?.offsetHeight ?? 0;
-  //       setShowScroll(window.scrollY < heroHeight - 100);
-  //     };
-
-  //     window.addEventListener("scroll", handleScroll);
-  //     return () => window.removeEventListener("scroll", handleScroll);
-  //   }, []);
-
   return (
     <section
       id="hero"
@@ -89,7 +77,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto"
+          className="max-w-4xl mx-auto text-foreground font-bold text-5xl md:text-6xl"
         >
           {/* Greeting */}
           <motion.h1
@@ -121,7 +109,7 @@ export default function HeroSection() {
             className="text-2xl md:text-4xl font-semibold mb-6 h-16 flex items-center justify-center"
           >
             <span className="">I&apos;m a </span>
-            <span className="ml-2 text-primary dark:text-accent">{text}</span>
+            <span className="ml-2 text-primary ">{text}</span>
           </motion.div>
 
           {/* Subtitle */}
@@ -129,7 +117,7 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="text-lg md:text-x mb-8 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg md:text-x mb-8 max-w-2xl mx-auto leading-relaxed "
           >
             I craft full-stack web experiences with a creative touch, blending
             cutting-edge technology with innovative design to build the future

@@ -119,18 +119,18 @@
   }
 }
 
-/* Add these theme classes to your existing globals.css */
 
-/* Portfolio Theme - Your requested colors */
+
+
 [data-color-theme="portfolio"] {
-  --primary: oklch(0.577 0.245 27.325); /* #e63946 - Red */
-  --primary-foreground: oklch(0.985 0.015 106.478); /* #f1faee - Light cream */
-  --secondary: oklch(0.828 0.045 196.364); /* #a8dadc - Light blue-green */
-  --secondary-foreground: oklch(0.248 0.057 258.338); /* #1d3557 - Dark navy */
-  --accent: oklch(0.577 0.086 225.83); /* #457b9d - Medium blue */
-  --accent-foreground: oklch(0.985 0.015 106.478); /* #f1faee */
-  --background: oklch(0.985 0.015 106.478); /* #f1faee - Light cream background */
-  --foreground: oklch(0.248 0.057 258.338); /* #1d3557 - Dark navy text */
+  --primary: oklch(0.577 0.245 27.325);
+  --primary-foreground: oklch(0.985 0.015 106.478);
+  --secondary: oklch(0.828 0.045 196.364);
+  --secondary-foreground: oklch(0.248 0.057 258.338);
+  --accent: oklch(0.577 0.086 225.83);
+  --accent-foreground: oklch(0.985 0.015 106.478);
+  --background: oklch(0.985 0.015 106.478);
+  --foreground: oklch(0.248 0.057 258.338);
   --card: oklch(0.985 0.015 106.478);
   --card-foreground: oklch(0.248 0.057 258.338);
   --muted: oklch(0.828 0.045 196.364);
@@ -140,15 +140,15 @@
   --ring: oklch(0.577 0.245 27.325 / 50%);
 }
 
-/* Portfolio Theme - Dark Mode */
+
 [data-color-theme="portfolio"].dark {
-  --background: oklch(0.248 0.057 258.338); /* #1d3557 - Dark navy */
-  --foreground: oklch(0.985 0.015 106.478); /* #f1faee - Light cream */
-  --primary: oklch(0.577 0.245 27.325); /* #e63946 - Red (keep vibrant) */
+  --background: oklch(0.248 0.057 258.338);
+  --foreground: oklch(0.985 0.015 106.478);
+  --primary: oklch(0.577 0.245 27.325);
   --primary-foreground: oklch(0.985 0.015 106.478);
-  --secondary: oklch(0.577 0.086 225.83); /* #457b9d - Medium blue */
+  --secondary: oklch(0.577 0.086 225.83);
   --secondary-foreground: oklch(0.985 0.015 106.478);
-  --card: oklch(0.309 0.057 258.338); /* Slightly lighter than background */
+  --card: oklch(0.309 0.057 258.338);
   --card-foreground: oklch(0.985 0.015 106.478);
   --muted: oklch(0.577 0.086 225.83 / 30%);
   --muted-foreground: oklch(0.828 0.045 196.364);
@@ -156,36 +156,66 @@
   --input: oklch(0.577 0.086 225.83 / 20%);
 }
 
-/* Ocean Theme - Bonus theme for experimentation */
+
 [data-color-theme="ocean"] {
-  --primary: oklch(0.445 0.108 195.198); /* #006d77 - Teal */
+ 
+  --primary: oklch(0.445 0.108 195.198);
   --primary-foreground: oklch(0.985 0.015 106.478);
-  --secondary: oklch(0.745 0.048 180.653); /* #83c5be - Light teal */
+  --secondary: oklch(0.745 0.048 180.653);
   --secondary-foreground: oklch(0.248 0.057 258.338);
-  --accent: oklch(0.881 0.035 74.934); /* #ffddd2 - Peach */
+  --accent: oklch(0.881 0.035 74.934);
   --accent-foreground: oklch(0.248 0.057 258.338);
   --background: oklch(0.985 0.015 106.478);
   --foreground: oklch(0.248 0.057 258.338);
   --card: oklch(0.985 0.015 106.478);
   --card-foreground: oklch(0.248 0.057 258.338);
+  --popover: oklch(0.985 0.015 106.478);
+  --popover-foreground: oklch(0.248 0.057 258.338);
   --muted: oklch(0.745 0.048 180.653);
   --muted-foreground: oklch(0.248 0.057 258.338);
+  --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.745 0.048 180.653 / 30%);
   --input: oklch(0.745 0.048 180.653 / 20%);
   --ring: oklch(0.445 0.108 195.198 / 50%);
+  --sidebar: oklch(0.985 0.015 106.478);
+  --sidebar-foreground: oklch(0.248 0.057 258.338);
+  --sidebar-primary: oklch(0.445 0.108 195.198);
+  --sidebar-primary-foreground: oklch(0.985 0.015 106.478);
+  --sidebar-accent: oklch(0.881 0.035 74.934);
+  --sidebar-accent-foreground: oklch(0.248 0.057 258.338);
+  --sidebar-border: oklch(0.745 0.048 180.653 / 30%);
+  --sidebar-ring: oklch(0.445 0.108 195.198 / 50%);
 }
 
 [data-color-theme="ocean"].dark {
+ 
   --background: oklch(0.248 0.057 258.338);
   --foreground: oklch(0.985 0.015 106.478);
-  --primary: oklch(0.745 0.048 180.653); /* Lighter teal for dark mode */
+  --primary: oklch(0.745 0.048 180.653);
   --primary-foreground: oklch(0.248 0.057 258.338);
   --card: oklch(0.309 0.057 258.338);
   --card-foreground: oklch(0.985 0.015 106.478);
+  --popover: oklch(0.309 0.057 258.338);
+  --popover-foreground: oklch(0.985 0.015 106.478);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --sidebar: oklch(0.309 0.057 258.338);
+  --sidebar-foreground: oklch(0.985 0.015 106.478);
+  --sidebar-primary: oklch(0.745 0.048 180.653);
+  --sidebar-primary-foreground: oklch(0.248 0.057 258.338);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
 }
-
-/* Keep your existing neutral theme as default */
-/* Your existing :root and .dark styles will serve as the default "neutral" theme */
 
 
 .font-heading {

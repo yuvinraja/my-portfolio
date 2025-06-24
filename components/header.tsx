@@ -61,7 +61,7 @@ export default function Header() {
     >
       <nav className="container mx-auto px-4 py-4 relative flex items-center justify-between">
         {/* Logo */}
-        <div className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">
+        <div className="text-2xl font-bold text-primary dark:text-primary">
           Yuvin.dev
         </div>
 
@@ -71,7 +71,7 @@ export default function Header() {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className="transition-colors font-medium "
+              className=""
             >
               {item.label}
             </button>
