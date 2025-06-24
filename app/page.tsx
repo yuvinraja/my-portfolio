@@ -7,6 +7,7 @@ import SkillsSection from "@/components/sections/skills-section";
 import ProjectsSection from  "@/components/sections/projects-section"
 import { motion, useScroll, useSpring } from "framer-motion";
 import ContactSection from "@/components/sections/contact-section";
+import BackToTop from "@/components/back-to-top";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -30,6 +31,7 @@ export default function Home() {
         <ProjectsSection />
         <ContactSection />
       </main>
+      <BackToTop />
     </>
   );
 }

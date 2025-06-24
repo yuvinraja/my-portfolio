@@ -3,8 +3,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Eye, FileText } from "lucide-react";
-// import { ArrowDown } from "lucide-react";
+import { Eye, MessageSquare } from "lucide-react";
 
 export default function HeroSection() {
   const roles = useMemo(
@@ -52,8 +51,8 @@ export default function HeroSection() {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const scrollToAbout = () => {
-    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -78,6 +77,9 @@ export default function HeroSection() {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto text-foreground font-bold text-5xl md:text-6xl"
         >
+          {/* Subtle Gradient Accent */}
+          <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-primary/20 to-accent/10 rounded-full blur-3xl"></div>
+
           {/* Greeting */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -131,44 +133,24 @@ export default function HeroSection() {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <Button
-              onClick={scrollToAbout}
-              size="lg"
-              className="px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <FileText className="mr-2 h-5 w-5" />
-              View Resume
-            </Button>
-            <Button
               onClick={scrollToProjects}
-              variant="outline"
               size="lg"
               className="px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <Eye className="mr-2 h-5 w-5" />
               View Projects
             </Button>
+            <Button
+              onClick={scrollToContact}
+              variant="outline"
+              size="lg"
+              className="px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <MessageSquare className="mr-2 h-5 w-5" />
+              Get in Touch
+            </Button>
           </motion.div>
         </motion.div>
-
-        {/* Scroll Indicator */}
-        {/* {showScroll && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ delay: 1.2, duration: 0.5 }}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          >
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="flex flex-col items-center"
-            >
-              <span className="text-sm mb-2">Scroll to explore</span>
-              <ArrowDown className="h-5 w-5" />
-            </motion.div>
-          </motion.div>
-        )} */}
       </div>
     </section>
   );

@@ -32,7 +32,7 @@ export default function AboutSection() {
             <div className="relative w-80 h-80 mx-auto">
               <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-full blur-2xl opacity-30"></div>
               <div className="relative w-full h-full bg-primary rounded-full p-1">
-                <div className="w-full h-full bg-background/90 dark:bg-slate-900 rounded-full overflow-hidden">
+                <div className="w-full h-full bg-background/90 dark:background/90 rounded-full overflow-hidden">
                   <Image
                     src="/headshot-removebg.png"
                     alt="Yuvin - Full Stack Developer"

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 import {
   Moon,
   Sun,
@@ -15,6 +16,7 @@ import {
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import { ThemeSwitcher } from "./theme-switcher";
+import { downloadResume } from "@/lib/download-resume";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,6 +50,11 @@ export default function Header() {
   ];
 
   if (!mounted) return null;
+
+  const handleClick = () => {
+    downloadResume();
+    toast.success("Resume opened and downloading...");
+  };
 
   return (
     <motion.header
@@ -83,7 +90,7 @@ export default function Header() {
           {/* Theme Switcher */}
           <ThemeSwitcher />
 
-          <Button className="font-heading text-lg px-6 py-3">
+          <Button className="font-heading text-lg px-6 py-3" onClick={handleClick}>
             <Download className="h-4 w-4 mr-2" />
             Resume
           </Button>

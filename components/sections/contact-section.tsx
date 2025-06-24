@@ -187,8 +187,7 @@ export default function ContactSection() {
           className="text-center mt-16 pt-8 border-t border-slate-200 dark:border-slate-700"
         >
           <p className="text-slate-600 dark:text-slate-400">
-            © {new Date().getFullYear()} Yuvin. Built with Next.js, Tailwind
-            CSS, and lots of ☕
+            © {new Date().getFullYear()} Yuvin Raja
           </p>
         </motion.div>
       </div>
