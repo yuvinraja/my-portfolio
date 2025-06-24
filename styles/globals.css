@@ -240,10 +240,22 @@
   }
 }
 
-/* Remove scrollbar */
-::-webkit-scrollbar {
-    display: none;
+/* Custom scrollbar */
+/* ::-webkit-scrollbar {
+  width: 8px;
 }
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100 dark:bg-slate-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-purple-500 to-pink-500 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply from-purple-600 to-pink-600;
+} */
 
 /* Smooth scrolling */
 html {

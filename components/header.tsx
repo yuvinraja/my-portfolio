@@ -55,7 +55,7 @@ export default function Header() {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg"
+          ? "bg-background/80 dark:bg-background/80 backdrop-filter backdrop-blur-sm bg-opacity-30 shadow-lg"
           : "bg-transparent"
       }`}
     >

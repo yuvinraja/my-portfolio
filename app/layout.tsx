@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import "../styles/scrollbar.css";
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ColorThemeProvider } from "@/lib/color-theme-provider";

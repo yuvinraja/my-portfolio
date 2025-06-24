@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import {  Eye, FileText } from "lucide-react";
+import { Eye, FileText } from "lucide-react";
 // import { ArrowDown } from "lucide-react";
 
 export default function HeroSection() {
@@ -142,7 +142,7 @@ export default function HeroSection() {
               onClick={scrollToProjects}
               variant="outline"
               size="lg"
-              className="border-2 px-8 py-3 text-lg font-semibold transition-all duration-300"
+              className="px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <Eye className="mr-2 h-5 w-5" />
               View Projects

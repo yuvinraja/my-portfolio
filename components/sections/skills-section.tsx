@@ -75,7 +75,7 @@ export default function SkillsSection() {
         </motion.div>
 
         {/* Technical Skills */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
@@ -84,7 +84,7 @@ export default function SkillsSection() {
               transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full bg-background/20 dark:bg-slate-900/70 backdrop-blur-sm border-slate-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300">
+              <Card className="h-full backdrop-blur-sm shadow-xl hover:shadow-xl/20 hover:ring transition-all duration-300">
                 <CardHeader>
                   <CardTitle
                     className={`text-xl font-bold bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}

@@ -4,6 +4,7 @@ import Header from "@/components/header";
 import AboutSection from "@/components/sections/about-section";
 import HeroSection from "@/components/sections/hero-section";
 import SkillsSection from "@/components/sections/skills-section";
+import ProjectsSection from  "@/components/sections/projects-section"
 import { motion, useScroll, useSpring } from "framer-motion";
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
         <HeroSection />
         <AboutSection />
         <SkillsSection />
+        <ProjectsSection />
       </main>
     </>
   );
