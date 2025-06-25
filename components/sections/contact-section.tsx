@@ -163,25 +163,34 @@ export default function ContactSection() {
             {/* Contact Details Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {contactInfo.map((info, index) => (
-                <motion.a
+<motion.a
                   key={info.title}
                   href={info.link}
                   target={info.link.startsWith('http') ? '_blank' : '_self'}
                   rel={info.link.startsWith('http') ? 'noopener noreferrer' : ''}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  transition={{ 
+                    opacity: { duration: 0.6, delay: index * 0.1 },
+                    y: { duration: 0.6, delay: index * 0.1 },
+                    scale: { type: "spring", stiffness: 400, damping: 25 },
+                    boxShadow: { type: "spring", stiffness: 400, damping: 25 }
+                  }}
                   viewport={{ once: true }}
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  className={`flex items-center space-x-4 p-4 rounded-lg border hover:shadow-md transition-all duration-300 ${
+                  whileHover={{ 
+                    scale: 1.02, 
+                    y: -2,
+                    boxShadow: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)"
+                  }}
+                  className={`flex items-center space-x-4 p-4 rounded-lg border transition-colors duration-200 ${
                     info.title === 'Location' ? 'sm:col-span-2' : ''
                   }`}
                 >
                   <div className="w-12 h-12 rounded-full flex items-center justify-center">
-                    <info.icon className="h-6 w-6 " />
+                    <info.icon className="h-6 w-6 text-accent" />
                   </div>
                   <div>
-                    <h4 className="font-semibold">{info.title}</h4>
+                    <h4 className="font-semibold text-secondary">{info.title}</h4>
                     <p className="">{info.value}</p>
                   </div>
                 </motion.a>

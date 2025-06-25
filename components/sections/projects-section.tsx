@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github, Play } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -15,14 +16,14 @@ export default function ProjectsSection() {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "Voltaero Landing Page",
       description:
-        "Full-stack e-commerce solution with React, Node.js, and PostgreSQL. Features include user authentication, payment integration, and admin dashboard.",
+        "Landing page for Voltaero Technologies, with custom animations and responsive design, feautuing a CMS for blog posts.",
       image: "/placeholder.svg?height=300&width=400",
       category: "Web",
-      tech: ["React", "Node.js", "PostgreSQL", "Stripe", "Tailwind CSS"],
-      github: "#",
-      live: "#",
+      tech: ["Next.js", "TypeScript", "Sanity", "Tailwind CSS"],
+      github: "https://github.com/yuvinraja/ARCWebsite",
+      live: "https://voltaero.vercel.app/",
       featured: true,
     },
     {
@@ -31,15 +32,15 @@ export default function ProjectsSection() {
         "Deep learning model for image classification using TensorFlow and CNN architecture. Achieved 94% accuracy on test dataset.",
       image: "/placeholder.svg?height=300&width=400",
       category: "AI/ML",
-      tech: ["Python", "TensorFlow", "OpenCV", "Flask", "NumPy"],
-      github: "#",
-      live: "#",
+      tech: ["Python", "TensorFlow", "OpenCV", "Streamlit", "Pandas"],
+      github: "https://github.com/yuvinraja/Image-Forgery-Detection",
+      live: "https://image-forgery-detector.streamlit.app/",
       featured: true,
     },
     {
       title: "Autonomous Robot Navigation",
       description:
-        "ROS-based autonomous navigation system for mobile robots using SLAM and path planning algorithms.",
+        "ROS-based autonomous navigation system for mobile robots using SLAM and path planning algorithms with Gazebo simulation.",
       image: "/placeholder.svg?height=300&width=400",
       category: "Robotics",
       tech: ["ROS", "Python", "C++", "OpenCV", "Gazebo"],
@@ -48,9 +49,9 @@ export default function ProjectsSection() {
       featured: false,
     },
     {
-      title: "3D Puzzle Game",
+      title: "First Person Shooter Game in Unity",
       description:
-        "Unity-based 3D puzzle game with physics simulation, level progression, and immersive sound design.",
+        "Unity-based 3D FPS-puzzle game with physics simulation, level progression, and immersive sound design.",
       image: "/placeholder.svg?height=300&width=400",
       category: "Games",
       tech: ["Unity", "C#", "Blender", "3D Modeling"],
@@ -59,25 +60,36 @@ export default function ProjectsSection() {
       featured: false,
     },
     {
-      title: "Real-time Chat App",
+      title: "Events Management System",
       description:
-        "WebSocket-based real-time chat application with rooms, file sharing, and emoji reactions.",
+        "Web application for managing personal events and schedule, featuring live countdown timers, event creation, and reminders.",
       image: "/placeholder.svg?height=300&width=400",
       category: "Web",
-      tech: ["Next.js", "Socket.io", "MongoDB", "Tailwind CSS"],
+      tech: ["HTML", "CSS", "JavaScript", "Node.js", "Express", "MongoDB"],
       github: "#",
       live: "#",
       featured: false,
     },
     {
-      title: "Sentiment Analysis API",
+      title: "Customer Churn Prediction and Analysis",
       description:
-        "RESTful API for sentiment analysis using NLP techniques and machine learning models.",
+        "Predictive analytics project to identify customers likely to churn using machine learning algorithms and data visualization.",
       image: "/placeholder.svg?height=300&width=400",
       category: "AI/ML",
-      tech: ["Python", "FastAPI", "NLTK", "Scikit-learn", "Docker"],
-      github: "#",
-      live: "#",
+      tech: ["Python", "Streamlit", "Scikit-learn", "Pandas", "NumPy"],
+      github: "https://github.com/yuvinraja/customer-churn-prediction",
+      live: "https://customer-churn-prediction-and-analysis.streamlit.app/",
+      featured: false,
+    },
+    {
+      title: "Invoice Management System",
+      description:
+        "Web application for managing invoices, including creation, tracking, and reporting functionalities for Entomon Solutions.",
+      image: "/placeholder.svg?height=300&width=400",
+      category: "Web",
+      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL"],
+      github: "https://github.com/yuvinraja/Tax-Invoice-Printer",
+      live: "https://tax-invoice-printer.vercel.app/",
       featured: false,
     },
   ];
@@ -212,13 +224,18 @@ export default function ProjectsSection() {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <Button
-            variant="secondary"
-            size="lg"
-            className="border-2 px-8 py-3 text-lg font-semibold transition-all duration-300"
+          <Link
+            href="https://github.com/yuvinraja?tab=repositories"
+            target="_blank"
           >
-            View All Projects on GitHub
-          </Button>
+            <Button
+              variant="secondary"
+              size="lg"
+              className="border-2 px-8 py-3 text-lg font-semibold transition-all duration-300 cursor-pointer hover:bg-primary hover:text-white hover:border-primary dark:hover:bg-primary dark:hover:text-white dark:hover:border-primary"
+            >
+              View All Projects on GitHub
+            </Button>
+          </Link>
         </motion.div>
       </div>
     </section>
