@@ -9,6 +9,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { Oxanium } from "next/font/google";
 import { Source_Code_Pro } from "next/font/google";
 import { Raleway } from "next/font/google";
+import { Toaster } from "sonner";
 
 const oxanium = Oxanium({
   subsets: ["latin"],
@@ -97,6 +98,7 @@ export default function RootLayout({
           >
             <ColorThemeProvider>
               <FloatingParticles />
+              <Toaster richColors position="top-center" />
               {children}
               <Analytics />
             </ColorThemeProvider>

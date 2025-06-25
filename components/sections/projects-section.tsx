@@ -55,7 +55,7 @@ export default function ProjectsSection() {
       image: "/project-images/game.png",
       category: "Games",
       tech: ["Unity", "C#", "Blender", "3D Modeling"],
-      github: "#",
+      github: "https://github.com/yuvinraja/TAG-FPS-Game",
       live: "#",
       featured: false,
     },

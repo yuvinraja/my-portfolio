@@ -9,28 +9,45 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone, Send, Github, Linkedin } from "lucide-react";
+import { toast } from "sonner";
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
-  };
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        toast.success("Message sent!");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        toast.error("Failed to send. Try again.");
+      }
+    } catch (error) {
+      toast.error("Something went wrong.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Local state for form data
 
   const contactInfo = [
     {
@@ -108,7 +125,7 @@ export default function ContactSection() {
                       type="text"
                       name="name"
                       placeholder="Your Name"
-                      value={formData.name}
+                      value={form.name}
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 rounded-lg"
@@ -119,7 +136,7 @@ export default function ContactSection() {
                       type="email"
                       name="email"
                       placeholder="Your Email"
-                      value={formData.email}
+                      value={form.email}
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 rounded-lg"
@@ -129,7 +146,7 @@ export default function ContactSection() {
                     <Textarea
                       name="message"
                       placeholder="Your Message"
-                      value={formData.message}
+                      value={form.message}
                       onChange={handleChange}
                       required
                       rows={5}
@@ -138,10 +155,11 @@ export default function ContactSection() {
                   </div>
                   <Button
                     type="submit"
+                    disabled={loading}
                     className="w-full py-3 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
                   >
                     <Send className="h-5 w-5 mr-2" />
-                    Send Message
+                    {loading ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </CardContent>
@@ -163,34 +181,39 @@ export default function ContactSection() {
             {/* Contact Details Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {contactInfo.map((info, index) => (
-<motion.a
+                <motion.a
                   key={info.title}
                   href={info.link}
-                  target={info.link.startsWith('http') ? '_blank' : '_self'}
-                  rel={info.link.startsWith('http') ? 'noopener noreferrer' : ''}
+                  target={info.link.startsWith("http") ? "_blank" : "_self"}
+                  rel={
+                    info.link.startsWith("http") ? "noopener noreferrer" : ""
+                  }
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ 
+                  transition={{
                     opacity: { duration: 0.6, delay: index * 0.1 },
                     y: { duration: 0.6, delay: index * 0.1 },
                     scale: { type: "spring", stiffness: 400, damping: 25 },
-                    boxShadow: { type: "spring", stiffness: 400, damping: 25 }
+                    boxShadow: { type: "spring", stiffness: 400, damping: 25 },
                   }}
                   viewport={{ once: true }}
-                  whileHover={{ 
-                    scale: 1.02, 
+                  whileHover={{
+                    scale: 1.02,
                     y: -2,
-                    boxShadow: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)"
+                    boxShadow:
+                      "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
                   }}
                   className={`flex items-center space-x-4 p-4 rounded-lg border transition-colors duration-200 ${
-                    info.title === 'Location' ? 'sm:col-span-2' : ''
+                    info.title === "Location" ? "sm:col-span-2" : ""
                   }`}
                 >
                   <div className="w-12 h-12 rounded-full flex items-center justify-center">
                     <info.icon className="h-6 w-6 text-accent" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-secondary">{info.title}</h4>
+                    <h4 className="font-semibold text-secondary">
+                      {info.title}
+                    </h4>
                     <p className="">{info.value}</p>
                   </div>
                 </motion.a>
