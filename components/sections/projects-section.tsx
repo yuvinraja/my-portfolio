@@ -1,17 +1,17 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { ExternalLink, Github, Play } from "lucide-react"
-import Image from "next/image"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { ExternalLink, Github, Play } from "lucide-react";
+import Image from "next/image";
 
 export default function ProjectsSection() {
-  const [activeFilter, setActiveFilter] = useState("All")
+  const [activeFilter, setActiveFilter] = useState("All");
 
-  const filters = ["All", "Web", "AI/ML", "Robotics", "Games"]
+  const filters = ["All", "Web", "AI/ML", "Robotics", "Games"];
 
   const projects = [
     {
@@ -38,7 +38,8 @@ export default function ProjectsSection() {
     },
     {
       title: "Autonomous Robot Navigation",
-      description: "ROS-based autonomous navigation system for mobile robots using SLAM and path planning algorithms.",
+      description:
+        "ROS-based autonomous navigation system for mobile robots using SLAM and path planning algorithms.",
       image: "/placeholder.svg?height=300&width=400",
       category: "Robotics",
       tech: ["ROS", "Python", "C++", "OpenCV", "Gazebo"],
@@ -48,7 +49,8 @@ export default function ProjectsSection() {
     },
     {
       title: "3D Puzzle Game",
-      description: "Unity-based 3D puzzle game with physics simulation, level progression, and immersive sound design.",
+      description:
+        "Unity-based 3D puzzle game with physics simulation, level progression, and immersive sound design.",
       image: "/placeholder.svg?height=300&width=400",
       category: "Games",
       tech: ["Unity", "C#", "Blender", "3D Modeling"],
@@ -58,7 +60,8 @@ export default function ProjectsSection() {
     },
     {
       title: "Real-time Chat App",
-      description: "WebSocket-based real-time chat application with rooms, file sharing, and emoji reactions.",
+      description:
+        "WebSocket-based real-time chat application with rooms, file sharing, and emoji reactions.",
       image: "/placeholder.svg?height=300&width=400",
       category: "Web",
       tech: ["Next.js", "Socket.io", "MongoDB", "Tailwind CSS"],
@@ -68,7 +71,8 @@ export default function ProjectsSection() {
     },
     {
       title: "Sentiment Analysis API",
-      description: "RESTful API for sentiment analysis using NLP techniques and machine learning models.",
+      description:
+        "RESTful API for sentiment analysis using NLP techniques and machine learning models.",
       image: "/placeholder.svg?height=300&width=400",
       category: "AI/ML",
       tech: ["Python", "FastAPI", "NLTK", "Scikit-learn", "Docker"],
@@ -76,13 +80,15 @@ export default function ProjectsSection() {
       live: "#",
       featured: false,
     },
-  ]
+  ];
 
   const filteredProjects =
-    activeFilter === "All" ? projects : projects.filter((project) => project.category === activeFilter)
+    activeFilter === "All"
+      ? projects
+      : projects.filter((project) => project.category === activeFilter);
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-20 px-2">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -113,9 +119,7 @@ export default function ProjectsSection() {
               onClick={() => setActiveFilter(filter)}
               variant={activeFilter === filter ? "default" : "outline"}
               className={`px-6 py-2 transition-all duration-300 hover:ring ${
-                activeFilter === filter
-                  ? "shadow-lg"
-                  : ""
+                activeFilter === filter ? "shadow-lg" : ""
               }`}
             >
               {filter}
@@ -146,11 +150,17 @@ export default function ProjectsSection() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="flex space-x-3">
-                      <Button size="sm" className="bg-white/20 backdrop-blur-sm text-white border-white/30">
+                      <Button
+                        size="sm"
+                        className="bg-white/20 backdrop-blur-sm text-white border-white/30"
+                      >
                         <Github className="h-4 w-4 mr-2" />
                         Code
                       </Button>
-                      <Button size="sm" className="bg-white/20 backdrop-blur-sm text-white border-white/30">
+                      <Button
+                        size="sm"
+                        className="bg-white/20 backdrop-blur-sm text-white border-white/30"
+                      >
                         <ExternalLink className="h-4 w-4 mr-2" />
                         Live
                       </Button>
@@ -163,9 +173,7 @@ export default function ProjectsSection() {
                     <CardTitle className="text-xl font-bold group-hover:text-primary/80 dark:group-hover:text-primary transition-colors">
                       {project.title}
                     </CardTitle>
-                    {project.featured && (
-                      <Badge className="">Featured</Badge>
-                    )}
+                    {project.featured && <Badge className="">Featured</Badge>}
                   </div>
                 </CardHeader>
 
@@ -174,29 +182,18 @@ export default function ProjectsSection() {
 
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech) => (
-                      <Badge
-                        key={tech}
-                        variant="secondary"
-                        className="text-xs"
-                      >
+                      <Badge key={tech} variant="secondary" className="text-xs">
                         {tech}
                       </Badge>
                     ))}
                   </div>
 
                   <div className="flex space-x-3 pt-4">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="flex-1"
-                    >
+                    <Button variant="outline" size="sm" className="flex-1">
                       <Github className="h-4 w-4 mr-2" />
                       Code
                     </Button>
-                    <Button
-                      size="sm"
-                      className="flex-1"
-                    >
+                    <Button size="sm" className="flex-1">
                       <Play className="h-4 w-4 mr-2" />
                       Demo
                     </Button>
@@ -225,5 +222,5 @@ export default function ProjectsSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

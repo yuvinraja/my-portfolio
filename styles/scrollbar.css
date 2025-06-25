@@ -64,3 +64,8 @@
 html, body {
   overflow-x: hidden;
 }
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}

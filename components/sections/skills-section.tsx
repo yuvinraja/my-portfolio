@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { motion } from "framer-motion";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function SkillsSection() {
   const skillCategories = [
@@ -15,7 +15,7 @@ export default function SkillsSection() {
         { name: "Framer Motion", level: 75 },
         { name: "Three.js", level: 70 },
       ],
-      color: "from-blue-500 to-cyan-500",
+      color: "from-chart-1 to-chart-1/50",
     },
     {
       title: "Backend",
@@ -27,7 +27,7 @@ export default function SkillsSection() {
         { name: "PostgreSQL", level: 80 },
         { name: "MongoDB", level: 75 },
       ],
-      color: "from-green-500 to-emerald-500",
+      color: "from-chart-2 to-chart-2/50",
     },
     {
       title: "AI/ML & Robotics",
@@ -39,7 +39,7 @@ export default function SkillsSection() {
         { name: "Scikit-learn", level: 80 },
         { name: "Pandas", level: 85 },
       ],
-      color: "from-purple-500 to-pink-500",
+      color: "from-chart-3 to-chart-3/50",
     },
     {
       title: "Tools & Others",
@@ -51,13 +51,12 @@ export default function SkillsSection() {
         { name: "Figma", level: 80 },
         { name: "Linux", level: 85 },
       ],
-      color: "from-orange-500 to-red-500",
+      color: "from-chart-4 to-chart-4/50",
     },
-  ]
-
+  ];
 
   return (
-    <section id="skills" className="py-20 ">
+    <section id="skills" className="py-20 px-2">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -84,7 +83,7 @@ export default function SkillsSection() {
               transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full backdrop-blur-sm shadow-xl hover:shadow-xl/20 hover:ring transition-all duration-300">
+              <Card className="h-full backdrop-blur-sm shadow-xl hover:shadow-xl/20 transition-all duration-300">
                 <CardHeader>
                   <CardTitle
                     className={`text-xl font-bold bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}
@@ -98,19 +97,27 @@ export default function SkillsSection() {
                       key={skill.name}
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.4, delay: categoryIndex * 0.1 + skillIndex * 0.05 }}
+                      transition={{
+                        duration: 0.4,
+                        delay: categoryIndex * 0.1 + skillIndex * 0.05,
+                      }}
                       viewport={{ once: true }}
                       className="space-y-2"
                     >
                       <div className="flex justify-between items-center">
-                        <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{skill.name}</span>
-                        <span className="text-xs text-slate-500 dark:text-slate-400">{skill.level}%</span>
+                        <span className="text-sm font-medium">
+                          {skill.name}
+                        </span>
+                        <span className="text-sm ">{skill.level}%</span>
                       </div>
-                      <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
+                      <div className="w-full bg-background dark:bg-background rounded-full h-2">
                         <motion.div
                           initial={{ width: 0 }}
                           whileInView={{ width: `${skill.level}%` }}
-                          transition={{ duration: 1, delay: categoryIndex * 0.1 + skillIndex * 0.05 }}
+                          transition={{
+                            duration: 1,
+                            delay: categoryIndex * 0.1 + skillIndex * 0.05,
+                          }}
                           viewport={{ once: true }}
                           className={`h-2 rounded-full bg-gradient-to-r ${category.color}`}
                         />
@@ -122,8 +129,7 @@ export default function SkillsSection() {
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
-  )
+  );
 }

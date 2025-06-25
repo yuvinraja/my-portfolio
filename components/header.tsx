@@ -15,7 +15,7 @@ import {
   X,
 } from "lucide-react";
 import { useTheme } from "next-themes";
-import { ThemeSwitcher } from "./theme-switcher";
+// import { ThemeSwitcher } from "./theme-switcher";
 import { downloadResume } from "@/lib/download-resume";
 
 export default function Header() {
@@ -68,7 +68,10 @@ export default function Header() {
     >
       <nav className="container mx-auto px-4 py-4 relative flex items-center justify-between">
         {/* Logo */}
-        <div className="text-2xl font-bold font-heading text-primary dark:text-primary">
+        <div
+          onClick={() => scrollToSection("hero")}
+          className="text-2xl font-bold font-heading text-primary dark:text-primary cursor-pointer"
+        >
           Yuvin.dev
         </div>
 
@@ -78,7 +81,8 @@ export default function Header() {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className="text-lg font-medium font-body text-foreground hover:text-primary transition-colors"
+              className="font-medium font-body text-foreground hover:text-primary transition-colors"
+                style={{ fontSize: "clamp(0.85rem, 1vw + 0.4rem, 1.125rem)" }}
             >
               {item.label}
             </button>
@@ -88,9 +92,23 @@ export default function Header() {
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center space-x-4">
           {/* Theme Switcher */}
-          <ThemeSwitcher />
+          {/* <ThemeSwitcher /> */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          >
+            {theme === "dark" ? (
+              <Sun className="h-5 w-5 text-foreground" />
+            ) : (
+              <Moon className="h-5 w-5 text-foreground" />
+            )}
+          </Button>
 
-          <Button className="font-heading text-lg px-6 py-3" onClick={handleClick}>
+          <Button
+            className="font-heading text-lg px-6 py-3"
+            onClick={handleClick}
+          >
             <Download className="h-4 w-4 mr-2" />
             Resume
           </Button>

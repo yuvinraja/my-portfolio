@@ -5,19 +5,19 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ColorThemeProvider } from "@/lib/color-theme-provider";
 import FloatingParticles from "@/components/floating-particles";
 
-import { Playfair_Display, Lora, Raleway } from "next/font/google";
+import { Oxanium } from "next/font/google";
+import { Source_Code_Pro } from "next/font/google";
+import { Raleway } from "next/font/google";
 
-const playfair = Playfair_Display({
+const oxanium = Oxanium({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-playfair",
+  variable: "--font-sans",
   display: "swap",
 });
 
-const lora = Lora({
+const sourceCodePro = Source_Code_Pro({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-lora",
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -27,7 +27,6 @@ const raleway = Raleway({
   variable: "--font-raleway",
   display: "swap",
 });
-
 
 export const metadata: Metadata = {
   title: "Yuvin Raja",
@@ -52,7 +51,11 @@ export default function RootLayout({
 }>) {
   return (
     <>
-      <html lang="en" className={`${playfair.variable} ${lora.variable} ${raleway.variable}`} suppressHydrationWarning>
+      <html
+        lang="en"
+        className={`${oxanium.variable} ${sourceCodePro.variable} ${raleway.variable}`}
+        suppressHydrationWarning
+      >
         <head />
         <body>
           <ThemeProvider

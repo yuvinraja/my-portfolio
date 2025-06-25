@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Github, Linkedin } from "lucide-react";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -40,21 +40,33 @@ export default function ContactSection() {
       link: "mailto:yuvinrajav@gmail.com",
     },
     {
+      icon: Linkedin,
+      title: "LinkedIn",
+      value: "linkedin.com/yuvinraja",
+      link: "https://linkedin.com/in/yuvinraja",
+    },
+    {
       icon: Phone,
       title: "Phone",
       value: "+91 76000 48580",
       link: "tel:+917600048580",
     },
     {
+      icon: Github,
+      title: "GitHub",
+      value: "github.com/yuvinraja",
+      link: "https://github.com/yuvinraja",
+    },
+    {
       icon: MapPin,
       title: "Location",
-      value: "India",
-      link: "#",
+      value: "Chennai, Bangalore, Delhi NCR - India",
+      link: "",
     },
   ];
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-20 px-2">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -145,32 +157,32 @@ export default function ContactSection() {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold mb-6 text-slate-800 dark:text-slate-200">
-                Get in touch
-              </h3>
+              <h3 className="text-2xl font-bold mb-6">Get in touch</h3>
             </div>
 
-            {/* Contact Details */}
-            <div className="space-y-4">
+            {/* Contact Details Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {contactInfo.map((info, index) => (
                 <motion.a
                   key={info.title}
                   href={info.link}
+                  target={info.link.startsWith('http') ? '_blank' : '_self'}
+                  rel={info.link.startsWith('http') ? 'noopener noreferrer' : ''}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ x: 5 }}
-                  className="flex items-center space-x-4 p-4 rounded-lg border hover:shadow-md transition-all duration-300"
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  className={`flex items-center space-x-4 p-4 rounded-lg border hover:shadow-md transition-all duration-300 ${
+                    info.title === 'Location' ? 'sm:col-span-2' : ''
+                  }`}
                 >
                   <div className="w-12 h-12 rounded-full flex items-center justify-center">
-                    <info.icon className="h-6 w-6 text-white" />
+                    <info.icon className="h-6 w-6 " />
                   </div>
                   <div>
                     <h4 className="font-semibold">{info.title}</h4>
-                    <p className="text-slate-600 dark:text-slate-400">
-                      {info.value}
-                    </p>
+                    <p className="">{info.value}</p>
                   </div>
                 </motion.a>
               ))}
@@ -184,11 +196,9 @@ export default function ContactSection() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-center mt-16 pt-8 border-t border-slate-200 dark:border-slate-700"
+          className="text-center mt-16 pt-8 border-t"
         >
-          <p className="text-slate-600 dark:text-slate-400">
-            © {new Date().getFullYear()} Yuvin Raja
-          </p>
+          <p className="">© {new Date().getFullYear()} Yuvin Raja</p>
         </motion.div>
       </div>
     </section>
