@@ -17,6 +17,7 @@ import {
 import { useTheme } from "next-themes";
 // import { ThemeSwitcher } from "./theme-switcher";
 import { downloadResume } from "@/lib/download-resume";
+import Link from "next/link";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -82,7 +83,7 @@ export default function Header() {
               key={item.id}
               onClick={() => scrollToSection(item.id)}
               className="font-medium font-body text-foreground hover:text-primary transition-colors"
-                style={{ fontSize: "clamp(0.85rem, 1vw + 0.4rem, 1.125rem)" }}
+              style={{ fontSize: "clamp(0.85rem, 1vw + 0.4rem, 1.125rem)" }}
             >
               {item.label}
             </button>
@@ -163,27 +164,36 @@ export default function Header() {
             ))}
             <div className="flex items-center justify-between pt-4 border-t border-border/50">
               <div className="flex items-center space-x-2">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="text-foreground hover:text-primary"
+                <Link href="https://github.com/yuvinraja" target="_blank">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="text-foreground hover:text-primary"
+                  >
+                    <Github className="h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link
+                  href="https://www.linkedin.com/in/yuvinraja/"
+                  target="_blank"
                 >
-                  <Github className="h-5 w-5" />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="text-foreground hover:text-primary"
-                >
-                  <Linkedin className="h-5 w-5" />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="text-foreground hover:text-primary"
-                >
-                  <Mail className="h-5 w-5" />
-                </Button>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="text-foreground hover:text-primary"
+                  >
+                    <Linkedin className="h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link href="mailto:yuvinrajav@gmail.com" target="_blank">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="text-foreground hover:text-primary"
+                  >
+                    <Mail className="h-5 w-5" />
+                  </Button>
+                </Link>
               </div>
               <Button size="sm" className="font-heading text-base">
                 <Download className="h-4 w-4 mr-2" />
