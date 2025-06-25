@@ -40,14 +40,13 @@ export default function ContactSection() {
       } else {
         toast.error("Failed to send. Try again.");
       }
-    } catch (error) {
-      toast.error("Something went wrong.");
+    } catch (error: unknown) {
+      console.error("Resend error", error);
+      console.error("Error sending message:", error);
     } finally {
       setLoading(false);
     }
   };
-
-  // Local state for form data
 
   const contactInfo = [
     {
