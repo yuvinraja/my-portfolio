@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ColorThemeProvider } from "@/lib/color-theme-provider";
 import FloatingParticles from "@/components/floating-particles";
+import { Analytics } from "@vercel/analytics/next";
 
 import { Oxanium } from "next/font/google";
 import { Source_Code_Pro } from "next/font/google";
@@ -67,6 +68,7 @@ export default function RootLayout({
             <ColorThemeProvider>
               <FloatingParticles />
               {children}
+              <Analytics />
             </ColorThemeProvider>
           </ThemeProvider>
         </body>
