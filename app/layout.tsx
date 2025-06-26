@@ -6,7 +6,7 @@ import { ColorThemeProvider } from "@/lib/color-theme-provider";
 import FloatingParticles from "@/components/floating-particles";
 
 import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { Oxanium } from "next/font/google";
 import { Source_Code_Pro } from "next/font/google";
@@ -90,7 +90,12 @@ export default function RootLayout({
         className={`${oxanium.variable} ${sourceCodePro.variable} ${raleway.variable}`}
         suppressHydrationWarning
       >
-        <head />
+        <head>
+          <meta
+            name="google-site-verification"
+            content="SxYouvwUFiRn6CSHKbkm7V2m4vSlNTRqRP2uqUIcvD8"
+          />
+        </head>
         <body>
           <ThemeProvider
             attribute="class"

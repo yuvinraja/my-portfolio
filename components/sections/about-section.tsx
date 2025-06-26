@@ -56,7 +56,7 @@ export default function AboutSection() {
             className="space-y-6"
           >
             <div className="space-y-4 text-justify">
-              <h3 className="text-2xl font-bold text-primary dark:text-primary">
+              <h3 className="text-2xl font-bold text-secondary dark:text-secondary">
                 Passionate Developer & Tech Innovator
               </h3>
               <p className="text-lg leading-relaxed primary-600 dark:primary-400">
