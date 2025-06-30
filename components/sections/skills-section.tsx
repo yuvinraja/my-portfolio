@@ -3,17 +3,19 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Icon } from '@iconify/react';
 
 export default function SkillsSection() {
   const skillCategories = [
     {
       title: "Programming Languages",
       skills: [
-        { name: "Java", expertise: "advanced", icon: "☕" },
-        { name: "Python", expertise: "advanced", icon: "🐍" },
-        { name: "JavaScript", expertise: "advanced", icon: "⚡" },
-        { name: "TypeScript", expertise: "intermediate", icon: "📘" },
-        { name: "C++", expertise: "intermediate", icon: "🔧" },
+        { name: "Java", expertise: "advanced", icon: "logos:java" },
+        // { name: "C", expertise: "intermediate", icon: "skill-icons:c" },
+        { name: "C++", expertise: "intermediate", icon: "material-icon-theme:cpp" },
+        { name: "Python", expertise: "advanced", icon: "material-icon-theme:python" },
+        { name: "JavaScript", expertise: "advanced", icon: "skill-icons:javascript" },
+        { name: "TypeScript", expertise: "intermediate", icon: "skill-icons:typescript" },
       ],
       color: "from-blue-500 to-cyan-500",
       bgGradient: "from-blue-500/10 to-cyan-500/10",
@@ -21,11 +23,11 @@ export default function SkillsSection() {
     {
       title: "Web Development",
       skills: [
-        { name: "Next.js", expertise: "advanced", icon: "▲" },
-        { name: "Node.js", expertise: "advanced", icon: "🟢" },
-        { name: "Express.js", expertise: "intermediate", icon: "🚀" },
-        { name: "Tailwind CSS", expertise: "advanced", icon: "🎨" },
-        { name: "Framer Motion", expertise: "intermediate", icon: "🎭" },
+        { name: "Next.js", expertise: "advanced", icon: "devicon:nextjs" },
+        { name: "Node.js", expertise: "advanced", icon: "devicon:nodejs" },
+        { name: "Express.js", expertise: "intermediate", icon: "skill-icons:expressjs-dark" },
+        { name: "Tailwind CSS", expertise: "advanced", icon: "logos:tailwindcss-icon" },
+        { name: "Framer Motion", expertise: "beginner", icon: "logos:framer" },
       ],
       color: "from-green-500 to-emerald-500",
       bgGradient: "from-green-500/10 to-emerald-500/10",
@@ -33,11 +35,11 @@ export default function SkillsSection() {
     {
       title: "Database & Backend",
       skills: [
-        { name: "MySQL", expertise: "intermediate", icon: "🗄️" },
-        { name: "PostgreSQL", expertise: "intermediate", icon: "🐘" },
-        { name: "MongoDB", expertise: "beginner", icon: "🍃" },
-        { name: "Prisma", expertise: "intermediate", icon: "💎" },
-        { name: "Postman", expertise: "intermediate", icon: "📮" },
+        { name: "MySQL", expertise: "intermediate", icon: "logos:mysql-icon" },
+        { name: "PostgreSQL", expertise: "intermediate", icon: "logos:postgresql" },
+        { name: "MongoDB", expertise: "beginner", icon: "logos:mongodb-icon" },
+        { name: "Prisma", expertise: "intermediate", icon: "devicon:prisma" },
+        { name: "Postman", expertise: "advanced", icon: "devicon:postman" },
       ],
       color: "from-purple-500 to-pink-500",
       bgGradient: "from-purple-500/10 to-pink-500/10",
@@ -45,11 +47,11 @@ export default function SkillsSection() {
     {
       title: "Tools & Technologies",
       skills: [
-        { name: "Git", expertise: "advanced", icon: "📦" },
-        { name: "Docker", expertise: "intermediate", icon: "🐳" },
-        { name: "Vercel", expertise: "intermediate", icon: "🔺" },
-        { name: "Unity", expertise: "beginner", icon: "🎮" },
-        { name: "Figma", expertise: "intermediate", icon: "🎨" },
+        { name: "Git", expertise: "advanced", icon: "logos:git-icon" },
+        { name: "Docker", expertise: "beginner", icon: "logos:docker-icon" },
+        { name: "Vercel", expertise: "intermediate", icon: "logos:vercel-icon" },
+        { name: "ROS", expertise: "beginner", icon: "devicon:ros" },
+        { name: "Figma", expertise: "beginner", icon: "logos:figma" },
       ],
       color: "from-orange-500 to-yellow-500",
       bgGradient: "from-orange-500/10 to-yellow-500/10",
@@ -190,7 +192,7 @@ export default function SkillsSection() {
                       <div className="flex items-center justify-between p-3 rounded-lg bg-background/50 dark:bg-background/30 hover:bg-background/80 dark:hover:bg-background/50 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                         <div className="flex items-center gap-3">
                           <span className="text-lg group-hover/skill:scale-110 transition-transform duration-200">
-                            {skill.icon}
+                            <Icon icon={skill.icon} width={24} height={24} />
                           </span>
                           <span className="font-medium text-foreground group-hover/skill:text-primary transition-colors duration-200">
                             {skill.name}
@@ -223,16 +225,16 @@ export default function SkillsSection() {
             <span className="text-sm text-muted-foreground">Expert</span>
           </div> */}
           <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-background/50 dark:bg-background/30 backdrop-blur-sm">
-            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500" />
-            <span className="text-sm text-muted-foreground">Advanced</span>
+            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-orange-500 to-yellow-500" />
+            <span className="text-sm text-muted-foreground">Learning</span>
           </div>
           <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-background/50 dark:bg-background/30 backdrop-blur-sm">
             <div className="w-2 h-2 rounded-full bg-gradient-to-r from-green-500 to-emerald-500" />
             <span className="text-sm text-muted-foreground">Intermediate</span>
           </div>
           <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-background/50 dark:bg-background/30 backdrop-blur-sm">
-            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-orange-500 to-yellow-500" />
-            <span className="text-sm text-muted-foreground">Learning</span>
+            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500" />
+            <span className="text-sm text-muted-foreground">Advanced</span>
           </div>
         </motion.div>
       </div>

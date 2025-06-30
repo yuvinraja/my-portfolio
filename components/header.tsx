@@ -195,7 +195,11 @@ export default function Header() {
                   </Button>
                 </Link>
               </div>
-              <Button size="sm" className="font-heading text-base">
+              <Button
+                size="sm"
+                onClick={handleClick}
+                className="font-heading text-base"
+              >
                 <Download className="h-4 w-4 mr-2" />
                 Resume
               </Button>

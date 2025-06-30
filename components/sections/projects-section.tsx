@@ -59,17 +59,17 @@ export default function ProjectsSection() {
       live: "#",
       featured: false,
     },
-    {
-      title: "Events Management System",
-      description:
-        "Web application for managing personal events and schedule, featuring live countdown timers, event creation, and reminders.",
-      image: "/project-images/event.png",
-      category: "Web",
-      tech: ["HTML", "CSS", "JavaScript", "Node.js", "Express", "MongoDB"],
-      github: "#",
-      live: "#",
-      featured: false,
-    },
+    // {
+    //   title: "Events Management System",
+    //   description:
+    //     "Web application for managing personal events and schedule, featuring live countdown timers, event creation, and reminders.",
+    //   image: "/project-images/event.png",
+    //   category: "Web",
+    //   tech: ["HTML", "CSS", "JavaScript", "Node.js", "Express", "MongoDB"],
+    //   github: "#",
+    //   live: "#",
+    //   featured: false,
+    // },
     {
       title: "Customer Churn Prediction and Analysis",
       description:
@@ -154,11 +154,11 @@ export default function ProjectsSection() {
               <Card className="h-full backdrop-blur-sm shadow-xl hover:shadow-xl/20 transition-all duration-300 overflow-hidden group pt-0">
                 <div className="relative overflow-hidden">
                   <Image
-                    src={project.image || "/placeholder.svg"}
+                    src={project.image}
                     alt={project.title}
                     width={400}
                     height={300}
-                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                    className="w-full h-48 object-cover transition-transform duration-900 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="flex space-x-3">
@@ -190,7 +190,7 @@ export default function ProjectsSection() {
                     <CardTitle className="text-xl font-bold group-hover:text-primary/80 dark:group-hover:text-primary transition-colors">
                       {project.title}
                     </CardTitle>
-                    {project.featured && <Badge className="">Featured</Badge>}
+                    {project.featured && <Badge className="bg-accent text-accent-foreground">Featured</Badge>}
                   </div>
                 </CardHeader>
 
