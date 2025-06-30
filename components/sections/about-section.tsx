@@ -57,20 +57,22 @@ export default function AboutSection() {
           >
             <div className="space-y-4 text-justify">
               <h3 className="text-2xl font-bold text-secondary dark:text-secondary">
-                Passionate Developer & Tech Innovator
+                Final-Year CSE Student | Builder at Heart
               </h3>
               <p className="text-lg leading-relaxed primary-600 dark:primary-400">
-                I&apos;m a Computer Science undergraduate at VIT Vellore with
-                strong expertise in full-stack development, AI/ML, and robotic
-                systems. My work spans building intelligent software and
-                simulating autonomous systems. Known for my focused,
-                problem-solving approach, I thrive in both hands-on development
-                and architectural planning.
+                I’ve been obsessed with tech since the days of writing snake
+                games in batch files — and that spark hasn’t dimmed since. Now
+                in my final year at VIT Vellore, I’ve grown into a developer who
+                loves crafting things that are both smart and useful — whether
+                it’s an AI-driven app, a full-stack product, or a robot that can
+                make its way through a room.
               </p>
               <p className="text-lg leading-relaxed primary-600 dark:primary-400">
-                I&apos;m driven by a passion for crafting scalable, impactful
-                solutions that tackle real-world challenges and improve lives
-                through technology.
+                What drives me is the thrill of solving tough problems, the joy
+                of clean code, and the impact of shipping real-world solutions.
+                I’m constantly learning, experimenting, and leveling up — and
+                I’m now focused on building standout projects that not only
+                showcase my skills but also make a difference in the real world.
               </p>
             </div>
           </motion.div>
