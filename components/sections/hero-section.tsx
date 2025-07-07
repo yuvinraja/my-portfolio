@@ -3,7 +3,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
 import {
   Eye,
   MessageSquare,
@@ -12,7 +11,7 @@ import {
   ChevronDown,
   MousePointer2,
 } from "lucide-react";
-import { downloadResume } from "@/lib/download-resume";
+import { viewResume } from "@/lib/download-resume";
 
 export default function HeroSection() {
   const roles = useMemo(
@@ -78,8 +77,7 @@ export default function HeroSection() {
   };
 
   const handleClick = () => {
-    downloadResume();
-    toast.success("Resume opened and downloading...");
+    viewResume();
   };
 
   const handleGitHubClick = () => {

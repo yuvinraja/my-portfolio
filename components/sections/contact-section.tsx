@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Phone, Send, Github, Linkedin } from "lucide-react";
+import { Mail, Phone, Send, Github, Linkedin } from "lucide-react";
 import { toast } from "sonner";
 
 export default function ContactSection() {
@@ -72,12 +72,6 @@ export default function ContactSection() {
       title: "GitHub",
       value: "github.com/yuvinraja",
       link: "https://github.com/yuvinraja",
-    },
-    {
-      icon: MapPin,
-      title: "Location",
-      value: "Chennai, Bangalore, Delhi NCR - India",
-      link: "",
     },
   ];
 
