@@ -11,18 +11,29 @@ import Link from "next/link";
 
 export default function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState("All");
-
+  
   const filters = ["All", "Web", "AI/ML", "Robotics", "Games"];
-
+  
   const projects = [
+    {
+      title: "InvoiceGST",
+      description:
+        "Enterprise-grade GST invoice management platform - featuring PDF generation, analytics dashboard, and complete tax compliance",
+      image: "/project-images/invoice.jpeg",
+      category: "Web",
+      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL"],
+      github: "https://github.com/yuvinraja/invoiceapp-frontend",
+      live: "https://invoicegst.vercel.app/",
+      featured: true,
+    },
     {
       title: "Voltaero Landing Page",
       description:
-        "Landing page for Voltaero Technologies, with custom animations and responsive design, feautuing a CMS for blog posts.",
+        "Modern Next.js website showcasing autonomous drone projects, robotics research, and experimental innovations. Features dynamic project galleries, Sanity CMS integration, and responsive design for the future of autonomous systems.",
       image: "/project-images/voltaero.png",
       category: "Web",
       tech: ["Next.js", "TypeScript", "Sanity", "Tailwind CSS"],
-      github: "https://github.com/yuvinraja/ARCWebsite",
+      github: "https://github.com/yuvinraja/VoltaeroTech",
       live: "https://voltaero.vercel.app/",
       featured: true,
     },
@@ -79,17 +90,6 @@ export default function ProjectsSection() {
       tech: ["Python", "Streamlit", "Scikit-learn", "Pandas", "NumPy"],
       github: "https://github.com/yuvinraja/customer-churn-prediction",
       live: "https://customer-churn-prediction-and-analysis.streamlit.app/",
-      featured: false,
-    },
-    {
-      title: "Invoice Management System",
-      description:
-        "Web application for managing invoices, including creation, tracking, and reporting functionalities for Entomon Solutions.",
-      image: "/project-images/invoice.png",
-      category: "Web",
-      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL"],
-      github: "https://github.com/yuvinraja/Tax-Invoice-Printer",
-      live: "https://tax-invoice-printer.vercel.app/",
       featured: false,
     },
   ];
