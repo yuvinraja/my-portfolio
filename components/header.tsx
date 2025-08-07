@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import {
-  Moon,
-  Sun,
+  // Moon,
+  // Sun,
   Download,
   Github,
   Linkedin,
@@ -14,15 +14,15 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import { useTheme } from "next-themes";
-// import { ThemeSwitcher } from "./theme-switcher";
+// import { useTheme } from "next-themes";
+import { AnimatedThemeToggle } from "@/components/animated-theme-toggle";
 import { downloadResume } from "@/lib/download-resume";
 import Link from "next/link";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
+  // const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -93,8 +93,7 @@ export default function Header() {
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center space-x-4">
           {/* Theme Switcher */}
-          {/* <ThemeSwitcher /> */}
-          <Button
+          {/* <Button
             variant="ghost"
             size="icon"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -104,7 +103,10 @@ export default function Header() {
             ) : (
               <Moon className="h-5 w-5 text-foreground" />
             )}
-          </Button>
+          </Button> */}
+
+           {/* Animated Theme Toggle  */}
+          <AnimatedThemeToggle />
 
           <Button
             className="font-heading text-lg px-6 py-3"
@@ -117,7 +119,8 @@ export default function Header() {
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center space-x-2">
-          <Button
+          {/* Theme Switcher */}
+          {/* <Button
             variant="ghost"
             size="icon"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -127,7 +130,11 @@ export default function Header() {
             ) : (
               <Moon className="h-5 w-5 text-foreground" />
             )}
-          </Button>
+          </Button> */}
+
+          {/* Animated Theme Toggle  */}
+          <AnimatedThemeToggle />
+
           <Button
             variant="ghost"
             size="icon"

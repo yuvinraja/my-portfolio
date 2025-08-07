@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useState, useEffect, useMemo } from "react";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { useState, useEffect, useMemo } from 'react';
+import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
 import {
   Eye,
   MessageSquare,
@@ -10,37 +10,39 @@ import {
   Linkedin,
   ChevronDown,
   MousePointer2,
-} from "lucide-react";
-import { viewResume } from "@/lib/download-resume";
+} from 'lucide-react';
+import { viewResume } from '@/lib/download-resume';
 
 export default function HeroSection() {
   const roles = useMemo(
     () => [
-      "Full Stack Developer",
-      "ML Developer",
-      "Software Engineer",
-      "Web Developer",
-      "Systems Architect",
+      'Full Stack Developer',
+      'ML Developer',
+      'Software Engineer',
+      'Web Developer',
+      'Systems Architect',
     ],
     []
   );
 
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
   const [roleIndex, setRoleIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(700);
 
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (window.scrollY > 50 && !hasScrolled) {
+        setHasScrolled(true);
+      }
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [hasScrolled]);
 
   useEffect(() => {
     const current = roles[roleIndex];
@@ -58,7 +60,7 @@ export default function HeroSection() {
       if (!isDeleting && text === fullText) {
         // Pause before starting to delete
         setTimeout(() => setIsDeleting(true), 2000);
-      } else if (isDeleting && text === "") {
+      } else if (isDeleting && text === '') {
         setIsDeleting(false);
         setRoleIndex((prev) => (prev + 1) % roles.length);
       }
@@ -68,12 +70,12 @@ export default function HeroSection() {
   }, [text, isDeleting, roleIndex, roles, typingSpeed]);
 
   const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const scrollToNextSection = () => {
     // Scroll to about section or next section after hero
-    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleClick = () => {
@@ -81,14 +83,14 @@ export default function HeroSection() {
   };
 
   const handleGitHubClick = () => {
-    if (typeof window !== "undefined") {
-      window.open("https://github.com/yuvinraja", "_blank");
+    if (typeof window !== 'undefined') {
+      window.open('https://github.com/yuvinraja', '_blank');
     }
   };
 
   const handleLinkedInClick = () => {
-    if (typeof window !== "undefined") {
-      window.open("https://linkedin.com/in/yuvinraja", "_blank");
+    if (typeof window !== 'undefined') {
+      window.open('https://linkedin.com/in/yuvinraja', '_blank');
     }
   };
 
@@ -176,14 +178,14 @@ export default function HeroSection() {
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.7, duration: 0.4, ease: "easeOut" }}
+            transition={{ delay: 0.7, duration: 0.4, ease: 'easeOut' }}
             className="flex justify-center gap-4 mb-4"
           >
             <motion.button
               onClick={handleGitHubClick}
               whileHover={{ scale: 1.1, y: -4 }}
               whileTap={{ scale: 0.97 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               className="p-3 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 shadow-lg hover:shadow-xl hover:bg-background/90 cursor-pointer transition-colors duration-300"
               aria-label="Visit GitHub Profile"
             >
@@ -194,7 +196,7 @@ export default function HeroSection() {
               onClick={handleLinkedInClick}
               whileHover={{ scale: 1.1, y: -4 }}
               whileTap={{ scale: 0.97 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               className="p-3 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 shadow-lg hover:shadow-xl hover:bg-background/90 cursor-pointer transition-colors duration-300"
               aria-label="Visit LinkedIn Profile"
             >
@@ -240,7 +242,7 @@ export default function HeroSection() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.2 }}
-        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 ${isScrolled ? "hidden" : "block"}`}
+        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 ${hasScrolled ? 'hidden' : 'block'}`}
       >
         <motion.button
           onClick={scrollToNextSection}

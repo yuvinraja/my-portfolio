@@ -57,7 +57,7 @@
 }
 
 :root {
---background: oklch(0.8452 0 0);
+  --background: oklch(0.8452 0 0);
   --foreground: oklch(0.2393 0 0);
   --card: oklch(0.7572 0 0);
   --card-foreground: oklch(0.2393 0 0);
@@ -106,6 +106,10 @@
   --shadow-xl: 0px 2px 4px 0px hsl(0 0% 0% / 0.4),
     0px 8px 10px -1px hsl(0 0% 0% / 0.4);
   --shadow-2xl: 0px 2px 4px 0px hsl(0 0% 0% / 1);
+
+  /* Theme transition timing */
+  --transition-duration: 0.4s;
+  --transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dark {
@@ -160,11 +164,62 @@
   --shadow-2xl: 0px 2px 5px 0px hsl(0 0% 0% / 1.5);
 }
 
+/* Smooth theme transitions for all elements */
+*,
+*::before,
+*::after {
+  transition: 
+    background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    fill 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    stroke 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .theme-ripple {
+    display: none !important;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  
   body {
     @apply bg-background text-foreground;
+  }
+  
+  /* Enhanced transitions for specific elements */
+  header,
+  nav,
+  main,
+  section,
+  footer {
+    transition: 
+      background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Special handling for backdrop blur elements */
+  .backdrop-blur-sm,
+  .backdrop-blur,
+  .backdrop-blur-md,
+  .backdrop-blur-lg {
+    transition: 
+      background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      backdrop-filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }

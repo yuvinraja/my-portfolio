@@ -11,8 +11,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Oxanium } from "next/font/google";
 import { Source_Code_Pro } from "next/font/google";
 import { Raleway } from "next/font/google";
-// import { Toaster } from "sonner";
-import { ThemedToaster } from "@/components/themed-toaster";
+
+import { Toaster } from "@/components/ui/sonner";
 
 const oxanium = Oxanium({
   subsets: ["latin"],
@@ -106,9 +106,8 @@ export default function RootLayout({
           >
             <ColorThemeProvider>
               <FloatingParticles />
-              < ThemedToaster />
-              {/* <Toaster richColors position="top-center" /> */}
               {children}
+              <Toaster/>
               <Analytics />
               <SpeedInsights />
             </ColorThemeProvider>
