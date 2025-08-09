@@ -1,73 +1,79 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github, Play } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { ExternalLink, Github, Play } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function ProjectsSection() {
-  const [activeFilter, setActiveFilter] = useState("All");
-  
-  const filters = ["All", "Web", "AI/ML", "Robotics", "Games"];
-  
+  const [activeFilter, setActiveFilter] = useState('All');
+
+  const filters = ['All', 'Web', 'AI/ML', 'Robotics', 'Games'];
+
   const projects = [
     {
-      title: "InvoiceGST",
+      title: 'InvoiceGST',
       description:
-        "Enterprise-grade GST invoice management platform - featuring PDF generation, analytics dashboard, and complete tax compliance",
-      image: "/project-images/invoice.jpeg",
-      category: "Web",
-      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL"],
-      github: "https://github.com/yuvinraja/invoiceapp-frontend",
-      live: "https://invoicegst.vercel.app/",
+        'Enterprise-grade GST invoice management platform - featuring PDF generation, analytics dashboard, and complete tax compliance',
+      image: '/project-images/invoice.jpeg',
+      category: 'Web',
+      tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Prisma', 'PostgreSQL'],
+      github: 'https://github.com/yuvinraja/invoiceapp-frontend',
+      live: 'https://invoicegst.vercel.app/',
       featured: true,
     },
     {
-      title: "Voltaero Landing Page",
+      title: 'Voltaero Landing Page',
       description:
-        "Modern Next.js website showcasing autonomous drone projects, robotics research, and experimental innovations. Features dynamic project galleries, Sanity CMS integration, and responsive design for the future of autonomous systems.",
-      image: "/project-images/voltaero.png",
-      category: "Web",
-      tech: ["Next.js", "TypeScript", "Sanity", "Tailwind CSS"],
-      github: "https://github.com/yuvinraja/VoltaeroTech",
-      live: "https://voltaero.vercel.app/",
+        'Modern Next.js website showcasing autonomous drone projects, robotics research, and experimental innovations.',
+      image: '/project-images/voltaero.png',
+      category: 'Web',
+      tech: [
+        'Next.js',
+        'TypeScript',
+        'Sanity',
+        'Tailwind CSS',
+        'Framer Motion',
+      ],
+      github: 'https://github.com/yuvinraja/VoltaeroTech',
+      live: 'https://voltaero.vercel.app/',
       featured: true,
     },
     {
-      title: "AI Image Classifier",
+      title: 'AI Image Classifier',
       description:
-        "Deep learning model for image classification using TensorFlow and CNN architecture. Achieved 94% accuracy on test dataset.",
-      image: "/project-images/image-forgery.png",
-      category: "AI/ML",
-      tech: ["Python", "TensorFlow", "OpenCV", "Streamlit", "Pandas"],
-      github: "https://github.com/yuvinraja/Image-Forgery-Detection",
-      live: "https://image-forgery-detector.streamlit.app/",
+        'Deep learning model for image classification using TensorFlow and CNN architecture. Achieved 94% accuracy on test dataset.',
+      image: '/project-images/image-forgery.png',
+      category: 'AI/ML',
+      tech: ['Python', 'TensorFlow', 'OpenCV', 'Streamlit', 'Pandas'],
+      github: 'https://github.com/yuvinraja/Image-Forgery-Detection',
+      live: 'https://image-forgery-detector.streamlit.app/',
       featured: true,
     },
     {
-      title: "Autonomous Robot Navigation",
+      title: 'Autonomous Robot Navigation',
       description:
-        "ROS-based autonomous navigation system for mobile robots using SLAM and path planning algorithms with Gazebo simulation.",
-      image: "/project-images/robot.png",
-      category: "Robotics",
-      tech: ["ROS", "Python", "C++", "OpenCV", "Gazebo"],
-      github: "#",
-      live: "#",
+        'ROS-based autonomous navigation system for mobile robots using SLAM and path planning algorithms with Gazebo simulation.',
+      image: '/project-images/robot.png',
+      category: 'Robotics',
+      tech: ['ROS', 'Python', 'C++', 'OpenCV', 'Gazebo'],
+      github: '#',
+      live: '#',
       featured: false,
     },
     {
-      title: "First Person Shooter Game in Unity",
+      title: 'First Person Shooter Game in Unity',
       description:
-        "Unity-based 3D FPS-puzzle game with physics simulation, level progression, and immersive sound design.",
-      image: "/project-images/game.png",
-      category: "Games",
-      tech: ["Unity", "C#", "Blender", "3D Modeling"],
-      github: "https://github.com/yuvinraja/TAG-FPS-Game",
-      live: "#",
+        'Unity-based 3D FPS-puzzle game with physics simulation, level progression, and immersive sound design.',
+      image: '/project-images/game.png',
+      category: 'Games',
+      tech: ['Unity', 'C#', 'Blender', '3D Modeling'],
+      github: 'https://github.com/yuvinraja/TAG-FPS-Game',
+      live: '#',
       featured: false,
     },
     // {
@@ -82,20 +88,20 @@ export default function ProjectsSection() {
     //   featured: false,
     // },
     {
-      title: "Customer Churn Prediction and Analysis",
+      title: 'Customer Churn Prediction',
       description:
-        "Predictive analytics project to identify customers likely to churn using machine learning algorithms and data visualization.",
-      image: "/project-images/churn.png",
-      category: "AI/ML",
-      tech: ["Python", "Streamlit", "Scikit-learn", "Pandas", "NumPy"],
-      github: "https://github.com/yuvinraja/customer-churn-prediction",
-      live: "https://customer-churn-prediction-and-analysis.streamlit.app/",
+        'Predictive analytics project to identify customers likely to churn using machine learning algorithms and data visualization.',
+      image: '/project-images/churn.png',
+      category: 'AI/ML',
+      tech: ['Python', 'Streamlit', 'Scikit-learn', 'Pandas', 'NumPy'],
+      github: 'https://github.com/yuvinraja/customer-churn-prediction',
+      live: 'https://customer-churn-prediction-and-analysis.streamlit.app/',
       featured: false,
     },
   ];
 
   const filteredProjects =
-    activeFilter === "All"
+    activeFilter === 'All'
       ? projects
       : projects.filter((project) => project.category === activeFilter);
 
@@ -115,6 +121,9 @@ export default function ProjectsSection() {
             </span>
           </h2>
           <div className="w-24 h-1 bg-primary dark:bg-primary mx-auto rounded-full mb-8"></div>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Showcasing a selection of my most impactful projects
+          </p>
         </motion.div>
 
         {/* Filter Buttons */}
@@ -129,9 +138,9 @@ export default function ProjectsSection() {
             <Button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              variant={activeFilter === filter ? "default" : "outline"}
+              variant={activeFilter === filter ? 'default' : 'outline'}
               className={`px-6 py-2 transition-all duration-300 hover:ring ${
-                activeFilter === filter ? "shadow-lg" : ""
+                activeFilter === filter ? 'shadow-lg' : ''
               }`}
             >
               {filter}
@@ -149,7 +158,7 @@ export default function ProjectsSection() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -10 }}
-              className={project.featured ? "md:col-span-2 lg:col-span-1" : ""}
+              className={project.featured ? 'md:col-span-2 lg:col-span-1' : ''}
             >
               <Card className="h-full backdrop-blur-sm shadow-xl hover:shadow-xl/20 transition-all duration-300 overflow-hidden group pt-0">
                 <div className="relative overflow-hidden">
@@ -190,7 +199,11 @@ export default function ProjectsSection() {
                     <CardTitle className="text-xl font-bold group-hover:text-primary/80 dark:group-hover:text-primary transition-colors">
                       {project.title}
                     </CardTitle>
-                    {project.featured && <Badge className="bg-accent text-accent-foreground">Featured</Badge>}
+                    {project.featured && (
+                      <Badge className="bg-accent text-accent-foreground">
+                        Featured
+                      </Badge>
+                    )}
                   </div>
                 </CardHeader>
 
@@ -207,7 +220,11 @@ export default function ProjectsSection() {
 
                   <div className="flex space-x-3 pt-4">
                     <Link href={project.github} target="_blank">
-                      <Button variant="outline" size="sm" className="flex-1 cursor-pointer">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex-1 cursor-pointer"
+                      >
                         <Github className="h-4 w-4 mr-2" />
                         Code
                       </Button>

@@ -1,60 +1,93 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { motion } from 'framer-motion';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { Icon } from '@iconify/react';
+import FloatingParticles from '../floating-particles';
 
 export default function SkillsSection() {
   const skillCategories = [
     {
-      title: "Programming Languages",
+      title: 'Programming Languages',
       skills: [
-        { name: "Java", expertise: "advanced", icon: "logos:java" },
+        { name: 'Java', expertise: 'advanced', icon: 'logos:java' },
         // { name: "C", expertise: "intermediate", icon: "skill-icons:c" },
-        { name: "C++", expertise: "intermediate", icon: "material-icon-theme:cpp" },
-        { name: "Python", expertise: "advanced", icon: "material-icon-theme:python" },
-        { name: "JavaScript", expertise: "advanced", icon: "skill-icons:javascript" },
-        { name: "TypeScript", expertise: "intermediate", icon: "skill-icons:typescript" },
+        {
+          name: 'C++',
+          expertise: 'intermediate',
+          icon: 'material-icon-theme:cpp',
+        },
+        {
+          name: 'Python',
+          expertise: 'advanced',
+          icon: 'material-icon-theme:python',
+        },
+        {
+          name: 'JavaScript',
+          expertise: 'advanced',
+          icon: 'skill-icons:javascript',
+        },
+        {
+          name: 'TypeScript',
+          expertise: 'intermediate',
+          icon: 'skill-icons:typescript',
+        },
       ],
-      color: "from-blue-500 to-cyan-500",
-      bgGradient: "from-blue-500/10 to-cyan-500/10",
+      color: 'from-blue-500 to-cyan-500',
+      bgGradient: 'from-blue-500/10 to-cyan-500/10',
     },
     {
-      title: "Web Development",
+      title: 'Web Development',
       skills: [
-        { name: "Next.js", expertise: "advanced", icon: "devicon:nextjs" },
-        { name: "Node.js", expertise: "advanced", icon: "devicon:nodejs" },
-        { name: "Express.js", expertise: "intermediate", icon: "skill-icons:expressjs-dark" },
-        { name: "Tailwind CSS", expertise: "advanced", icon: "logos:tailwindcss-icon" },
-        { name: "Framer Motion", expertise: "beginner", icon: "logos:framer" },
+        { name: 'Next.js', expertise: 'advanced', icon: 'devicon:nextjs' },
+        { name: 'Node.js', expertise: 'advanced', icon: 'devicon:nodejs' },
+        {
+          name: 'Express.js',
+          expertise: 'intermediate',
+          icon: 'skill-icons:expressjs-dark',
+        },
+        {
+          name: 'Tailwind CSS',
+          expertise: 'advanced',
+          icon: 'logos:tailwindcss-icon',
+        },
+        { name: 'Framer Motion', expertise: 'beginner', icon: 'logos:framer' },
       ],
-      color: "from-green-500 to-emerald-500",
-      bgGradient: "from-green-500/10 to-emerald-500/10",
+      color: 'from-green-500 to-emerald-500',
+      bgGradient: 'from-green-500/10 to-emerald-500/10',
     },
     {
-      title: "Database & Backend",
+      title: 'Database & Backend',
       skills: [
-        { name: "MySQL", expertise: "intermediate", icon: "logos:mysql-icon" },
-        { name: "PostgreSQL", expertise: "intermediate", icon: "logos:postgresql" },
-        { name: "MongoDB", expertise: "beginner", icon: "logos:mongodb-icon" },
-        { name: "Prisma", expertise: "intermediate", icon: "devicon:prisma" },
-        { name: "Postman", expertise: "advanced", icon: "devicon:postman" },
+        { name: 'MySQL', expertise: 'intermediate', icon: 'logos:mysql-icon' },
+        {
+          name: 'PostgreSQL',
+          expertise: 'intermediate',
+          icon: 'logos:postgresql',
+        },
+        { name: 'MongoDB', expertise: 'beginner', icon: 'logos:mongodb-icon' },
+        { name: 'Prisma', expertise: 'intermediate', icon: 'devicon:prisma' },
+        { name: 'Postman', expertise: 'advanced', icon: 'devicon:postman' },
       ],
-      color: "from-purple-500 to-pink-500",
-      bgGradient: "from-purple-500/10 to-pink-500/10",
+      color: 'from-purple-500 to-pink-500',
+      bgGradient: 'from-purple-500/10 to-pink-500/10',
     },
     {
-      title: "Tools & Technologies",
+      title: 'Tools & Technologies',
       skills: [
-        { name: "Git", expertise: "advanced", icon: "logos:git-icon" },
-        { name: "Docker", expertise: "beginner", icon: "logos:docker-icon" },
-        { name: "Vercel", expertise: "intermediate", icon: "logos:vercel-icon" },
-        { name: "ROS", expertise: "beginner", icon: "devicon:ros" },
-        { name: "Figma", expertise: "beginner", icon: "logos:figma" },
+        { name: 'Git', expertise: 'advanced', icon: 'logos:git-icon' },
+        { name: 'Docker', expertise: 'beginner', icon: 'logos:docker-icon' },
+        {
+          name: 'Vercel',
+          expertise: 'intermediate',
+          icon: 'logos:vercel-icon',
+        },
+        { name: 'ROS', expertise: 'beginner', icon: 'devicon:ros' },
+        { name: 'Figma', expertise: 'beginner', icon: 'logos:figma' },
       ],
-      color: "from-orange-500 to-yellow-500",
-      bgGradient: "from-orange-500/10 to-yellow-500/10",
+      color: 'from-orange-500 to-yellow-500',
+      bgGradient: 'from-orange-500/10 to-yellow-500/10',
     },
   ];
 
@@ -62,14 +95,14 @@ export default function SkillsSection() {
     switch (expertise) {
       // case "expert":
       //   return "bg-gradient-to-r from-purple-500 to-pink-500 text-white";
-      case "advanced":
-        return "bg-gradient-to-r from-blue-500 to-cyan-500 text-white";
-      case "intermediate":
-        return "bg-gradient-to-r from-green-500 to-emerald-500 text-white";
-      case "beginner":
-        return "bg-gradient-to-r from-orange-500 to-yellow-500 text-white";
+      case 'advanced':
+        return 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white';
+      case 'intermediate':
+        return 'bg-gradient-to-r from-green-500 to-emerald-500 text-white';
+      case 'beginner':
+        return 'bg-gradient-to-r from-orange-500 to-yellow-500 text-white';
       default:
-        return "bg-muted text-muted-foreground";
+        return 'bg-muted text-muted-foreground';
     }
   };
 
@@ -77,14 +110,14 @@ export default function SkillsSection() {
     switch (expertise) {
       // case "expert":
       //   return "Expert";
-      case "advanced":
-        return "Advanced";
-      case "intermediate":
-        return "Intermediate";
-      case "beginner":
-        return "Learning";
+      case 'advanced':
+        return 'Advanced';
+      case 'intermediate':
+        return 'Intermediate';
+      case 'beginner':
+        return 'Learning';
       default:
-        return "Familiar";
+        return 'Familiar';
     }
   };
 
@@ -105,7 +138,7 @@ export default function SkillsSection() {
       y: 0,
       scale: 1,
       transition: {
-        type: "spring" as const,
+        type: 'spring' as const,
         stiffness: 100,
         damping: 15,
       },
@@ -118,7 +151,7 @@ export default function SkillsSection() {
       opacity: 1,
       x: 0,
       transition: {
-        type: "spring" as const,
+        type: 'spring' as const,
         stiffness: 150,
         damping: 20,
       },
@@ -130,6 +163,7 @@ export default function SkillsSection() {
       {/* Background decoration */}
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-16" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <FloatingParticles />
 
       <div className="container mx-auto px-4 relative">
         <motion.div
@@ -164,7 +198,7 @@ export default function SkillsSection() {
               variants={cardVariants}
               whileHover={{
                 scale: 1.02,
-                transition: { type: "spring", stiffness: 300, damping: 25 },
+                transition: { type: 'spring', stiffness: 300, damping: 25 },
               }}
             >
               <Card

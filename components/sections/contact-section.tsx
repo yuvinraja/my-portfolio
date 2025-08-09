@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import type React from "react";
+import type React from 'react';
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, Send, Github, Linkedin } from "lucide-react";
-import { toast } from "sonner";
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Send } from 'lucide-react';
+import { toast } from 'sonner';
 
 export default function ContactSection() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [loading, setLoading] = useState(false);
 
   const handleChange = (
@@ -26,54 +26,27 @@ export default function ContactSection() {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
 
       const data = await res.json();
 
       if (data.success) {
-        toast.success("Message sent!");
-        setForm({ name: "", email: "", message: "" });
+        toast.success('Message sent!');
+        setForm({ name: '', email: '', message: '' });
       } else {
-        toast.error("Failed to send. Try again.");
+        toast.error('Failed to send. Try again.');
       }
     } catch (error: unknown) {
-      console.error("Resend error", error);
-      console.error("Error sending message:", error);
+      console.error('Resend error', error);
+      console.error('Error sending message:', error);
     } finally {
       setLoading(false);
     }
   };
-
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: "Email",
-      value: "yuvinrajav@gmail.com",
-      link: "mailto:yuvinrajav@gmail.com",
-    },
-    {
-      icon: Linkedin,
-      title: "LinkedIn",
-      value: "linkedin.com/yuvinraja",
-      link: "https://linkedin.com/in/yuvinraja",
-    },
-    {
-      icon: Phone,
-      title: "Phone",
-      value: "+91 76000 48580",
-      link: "tel:+917600048580",
-    },
-    {
-      icon: Github,
-      title: "GitHub",
-      value: "github.com/yuvinraja",
-      link: "https://github.com/yuvinraja",
-    },
-  ];
 
   return (
     <section id="contact" className="py-20 px-2">
@@ -91,13 +64,13 @@ export default function ContactSection() {
             </span>
           </h2>
           <div className="w-24 h-1 bg-primary dark:bg-primary mx-auto rounded-full mb-8"></div>
-          <p className="text-lg max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Ready to collaborate on exciting projects or discuss opportunities?
             I&apos;d love to hear from you!
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="max-w-3xl mx-auto">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -152,66 +125,11 @@ export default function ContactSection() {
                     className="w-full py-3 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
                   >
                     <Send className="h-5 w-5 mr-2" />
-                    {loading ? "Sending..." : "Send Message"}
+                    {loading ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>
               </CardContent>
             </Card>
-          </motion.div>
-
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
-            <div>
-              <h3 className="text-2xl font-bold mb-6">Get in touch</h3>
-            </div>
-
-            {/* Contact Details Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {contactInfo.map((info, index) => (
-                <motion.a
-                  key={info.title}
-                  href={info.link}
-                  target={info.link.startsWith("http") ? "_blank" : "_self"}
-                  rel={
-                    info.link.startsWith("http") ? "noopener noreferrer" : ""
-                  }
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{
-                    opacity: { duration: 0.6, delay: index * 0.1 },
-                    y: { duration: 0.6, delay: index * 0.1 },
-                    scale: { type: "spring", stiffness: 400, damping: 25 },
-                    boxShadow: { type: "spring", stiffness: 400, damping: 25 },
-                  }}
-                  viewport={{ once: true }}
-                  whileHover={{
-                    scale: 1.02,
-                    y: -2,
-                    boxShadow:
-                      "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
-                  }}
-                  className={`flex items-center space-x-4 p-4 rounded-lg border transition-colors duration-200 ${
-                    info.title === "Location" ? "sm:col-span-2" : ""
-                  }`}
-                >
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center">
-                    <info.icon className="h-6 w-6 text-accent" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-secondary">
-                      {info.title}
-                    </h4>
-                    <p className="">{info.value}</p>
-                  </div>
-                </motion.a>
-              ))}
-            </div>
           </motion.div>
         </div>
 
