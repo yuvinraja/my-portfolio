@@ -120,8 +120,8 @@ export default function ProjectsSection() {
               Featured Projects
             </span>
           </h2>
-          <div className="w-24 h-1 bg-primary dark:bg-primary mx-auto rounded-full mb-8"></div>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <div className="w-24 h-1 bg-primary dark:bg-primary mx-auto rounded-full"></div>
+          <p className="text-muted-foreground mt-4 text-lg max-w-2xl mx-auto">
             Showcasing a selection of my most impactful projects
           </p>
         </motion.div>
