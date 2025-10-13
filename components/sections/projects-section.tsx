@@ -16,6 +16,28 @@ export default function ProjectsSection() {
 
   const projects = [
     {
+      title: 'Kando - CLI Kanban Board',
+      description:
+        'A CLI tool for local project management, featuring task tracking, deadlines, and project organization.',
+      image: '/project-images/kando.png',
+      category: 'CLI Tool',
+      tech: ['Java', 'Maven', 'JUnit', 'Picocli'],
+      github: 'https://github.com/yuvinraja/kando-cli',
+      live: 'false',
+      featured: false,
+    },
+    {
+      title: 'MiniCRM',
+      description:
+        'A CRM frontend application built with Next.js 15 and TypeScript, featuring AI-powered campaign generation and advanced customer segmentation.',
+      image: '/project-images/crm.jpeg',
+      category: 'Web',
+      tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Mongoose', 'MongoDB'],
+      github: 'https://github.com/yuvinraja/crm-frontend',
+      live: 'https://crm-frontend-rosy-delta.vercel.app/login',
+      featured: false,
+    },
+    {
       title: 'InvoiceGST',
       description:
         'Enterprise-grade GST invoice management platform - featuring PDF generation, analytics dashboard, and complete tax compliance',
@@ -41,7 +63,7 @@ export default function ProjectsSection() {
       ],
       github: 'https://github.com/yuvinraja/VoltaeroTech',
       live: 'https://voltaero.vercel.app/',
-      featured: true,
+      featured: false,
     },
     {
       title: 'AI Image Classifier',
@@ -61,8 +83,8 @@ export default function ProjectsSection() {
       image: '/project-images/robot.png',
       category: 'Robotics',
       tech: ['ROS', 'Python', 'C++', 'OpenCV', 'Gazebo'],
-      github: '#',
-      live: '#',
+      github: 'false',
+      live: 'false',
       featured: false,
     },
     {
@@ -73,7 +95,7 @@ export default function ProjectsSection() {
       category: 'Games',
       tech: ['Unity', 'C#', 'Blender', '3D Modeling'],
       github: 'https://github.com/yuvinraja/TAG-FPS-Game',
-      live: '#',
+      live: 'false',
       featured: false,
     },
     // {
@@ -171,25 +193,29 @@ export default function ProjectsSection() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="flex space-x-3">
-                      <Link href={project.github} target="_blank">
-                        <Button
-                          size="sm"
-                          className="bg-white/20 backdrop-blur-sm text-white border-white/30 cursor-pointer"
-                        >
-                          <Github className="h-4 w-4 mr-2" />
-                          Code
-                        </Button>
-                      </Link>
+                      {project.github !== 'false' && (
+                        <Link href={project.github} target="_blank">
+                          <Button
+                            size="sm"
+                            className="bg-white/20 backdrop-blur-sm text-white border-white/30 cursor-pointer"
+                          >
+                            <Github className="h-4 w-4 mr-2" />
+                            Code
+                          </Button>
+                        </Link>
+                      )}
 
-                      <Link href={project.live} target="_blank">
-                        <Button
-                          size="sm"
-                          className="bg-white/20 backdrop-blur-sm text-white border-white/30 cursor-pointer"
-                        >
-                          <ExternalLink className="h-4 w-4 mr-2" />
-                          Live
-                        </Button>
-                      </Link>
+                      {project.live !== 'false' && (
+                        <Link href={project.live} target="_blank">
+                          <Button
+                            size="sm"
+                            className="bg-white/20 backdrop-blur-sm text-white border-white/30 cursor-pointer"
+                          >
+                            <ExternalLink className="h-4 w-4 mr-2" />
+                            Live
+                          </Button>
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -219,22 +245,26 @@ export default function ProjectsSection() {
                   </div>
 
                   <div className="flex space-x-3 pt-4">
-                    <Link href={project.github} target="_blank">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="flex-1 cursor-pointer"
-                      >
-                        <Github className="h-4 w-4 mr-2" />
-                        Code
-                      </Button>
-                    </Link>
-                    <Link href={project.live} target="_blank">
-                      <Button size="sm" className="flex-1 cursor-pointer">
-                        <Play className="h-4 w-4 mr-2" />
-                        Demo
-                      </Button>
-                    </Link>
+                    {project.github !== 'false' && (
+                      <Link href={project.github} target="_blank">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="flex-1 cursor-pointer"
+                        >
+                          <Github className="h-4 w-4 mr-2" />
+                          Code
+                        </Button>
+                      </Link>
+                    )}
+                    {project.live !== 'false' && (
+                      <Link href={project.live} target="_blank">
+                        <Button size="sm" className="flex-1 cursor-pointer">
+                          <Play className="h-4 w-4 mr-2" />
+                          Demo
+                        </Button>
+                      </Link>
+                    )}
                   </div>
                 </CardContent>
               </Card>
